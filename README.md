@@ -1,5 +1,5 @@
 # Undergraduate Work
 
-- [UVM Honors College Thesis](thesis.html)
+- [UVM Honors College Thesis](hcol-thesis.html)
 
 # Personal Projects
