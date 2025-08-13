@@ -1,12 +1,5 @@
 # Theme
-theme: jekyll-theme-midnight
+theme: jekyll-theme-minimal
 
-# Title & bio
-title: Welcome!
-description: Bookmark this to keep an eye on my project updates!
-
-# Contact Links
-email: "lukepulaski@gmail.com"
-linkedin: "https://www.linkedin.com/in/lukepulaski"
-resume: "/resume.pdf"
-transcript: "/transcript.pdf"
+# Title
+title: Luke
