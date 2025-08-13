@@ -2,4 +2,4 @@
 
 Info about thesis here
 
-[📄 Download PDF](honors_thesis.pdf)
+[📄 Download PDF](honors-thesis.pdf)
