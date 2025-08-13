@@ -6,7 +6,7 @@ Final Project - Deal or No Deal
 
 import random
 
-with open('README.txt') as f:
+with open('README_cs_021.txt') as f:
     for line in f: 
         print(line)
 
