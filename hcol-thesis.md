@@ -2,4 +2,4 @@
 
 Info about thesis here
 
-[📄 Download PDF](thesis.pdf)
+[📄 Download PDF](Immigration Rents and House Prices in American Metropolitan Areas.pdf)
