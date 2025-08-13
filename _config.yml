@@ -1,3 +1,12 @@
-theme: jekyll-theme-slate
+# Theme
+theme: jekyll-theme-architect
+
+# Title & bio
 title: Welcome!
 description: Bookmark this to keep an eye on my project updates!
+
+# Contact Links
+email: "lukepulaski@gmail.com"
+linkedin: "https://www.linkedin.com/in/lukepulaski"
+resume: "/resume.pdf"
+transcript: "/transcript.pdf"
