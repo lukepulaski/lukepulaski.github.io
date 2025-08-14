@@ -67,6 +67,6 @@ available dollar values and divided by the number of remaining cases and compare
 Of course, the one time I played this strategy in this short "re-testing" phase I actually had the million dollars in my chosen case (I ended up walking away with $443,000, which is a 
 small consolation prize, I suppose). I have such horrible luck. 
 
-Shame on you, Howie Mandel, for creating this game just so I could eventually sloppily code it for a class project and constantly lose at it. 
+Shame on you, Howie Mandel, for popularizing this game just so I could eventually sloppily code it for a class project and constantly lose at it. 
 
 Hopefully the gods of Deal or No Deal smile upon you if you choose to partake. May you walk away from this game with as much imaginary cash as humanly possible.
