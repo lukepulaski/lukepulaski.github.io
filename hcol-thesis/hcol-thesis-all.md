@@ -23,4 +23,4 @@ total effect on housing costs can be attributed to direct demand from immigrant 
 find that the impact of immigration on house prices is significantly higher at the upper end of the
 house price distribution.
 
-[📄 Download PDF](honors-thesis.pdf)
+- [📄 Download PDF](honors-thesis.pdf)
