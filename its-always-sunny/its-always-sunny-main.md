@@ -25,9 +25,9 @@ audience ratings. These characteristics might include how much screen time/dialo
 make an appearance, if an episode tries to make social commentary, etc. Before looking at any audience ratings, I will also rate each episode based on how
 much I remember enjoying it to see if there are any commonalities between what I love about IASIP and what the broader audience seems to enjoy.
 
-Having aired its pilot episode in 2005, IASIP has been torturing the airwaves with perhaps the most toxic cast of characters in modern sitcom history for 
-nearly the literal duration of my lifetime. I can think of no better way to pay homage to it than to distill it down to a few tables, graphs, and charts, 
-and put it under a microscope on 400,000x magnification. 
+Having aired its pilot episode in 2005, IASIP has been infecting the airwaves with perhaps the most toxic cast of characters in modern sitcom history for 
+nearly the literal duration of my lifetime, and I couldn't be happier about it. I can think of no better way to pay homage to this show than to distill it down 
+to a few tables, graphs, and charts, and put it under a microscope on 400,000x magnification. 
 
 Spoiler alert: I have rated the episodes and I think that "The Gang Gives Frank an Intervention" is the best. If you would like to voice your displeasure 
 with my decision, free free to [email me](mailto:luke.pulaski@gmail.com) or [message me through LinkedIn](https://www.linkedin.com/in/luke-pulaski-437656200/). 
