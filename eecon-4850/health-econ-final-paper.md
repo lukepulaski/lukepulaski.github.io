@@ -1,4 +1,4 @@
-# UVM Health Economics (ECON 4850) Final Paper
+# University of Vermont (UVM) Health Economics (ECON 4850) Final Paper
 
 Info about paper here
 
