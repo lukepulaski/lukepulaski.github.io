@@ -41,6 +41,6 @@ that you would like to see, please do not hesistate to contact me! I can be reac
 I hope you enjoy!
 
 - [Could the Montreal Expos have been saved?](94-expos/94-expos-main.html)
-- [Creating the statistically perfect guitar solo]
+- [Creating the statistically perfect guitar solo](guitar-solos/guitar-solos-main.html)
 - [A Very Sunny Overanalysis: The ingredients of a great episode of *It's Always Sunny in Philadelphia*]
 - [Do rising rent prices mean worse tacos?]
