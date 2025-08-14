@@ -1,5 +1,10 @@
-# Theme
-theme: jekyll-theme-minimal
+title: Luke Pulaski
+description: Portfolio
+author:
+  name: Luke Pulaski
+  email: "luke.pulaski@gmail.com"
+  linkedin_url: "https://www.linkedin.com/in/luke-pulaski-437656200/"
+  github_url: "https://github.com/lukepulaski"
 
-# Title
-title: Luke
+# Theme
+theme: minima
