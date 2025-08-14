@@ -1,3 +1,5 @@
+# About Me
+
 # Undergraduate Work
 
 For each project, I have done my best to include all pertitent files and information. However, all
@@ -38,7 +40,7 @@ that you would like to see, please do not hesistate to contact me! I can be reac
 
 I hope you enjoy!
 
-- [Could the Montreal Expos have been saved?]
+- [Could the Montreal Expos have been saved?](94-expos/94-expos-main.html)
 - [Creating the statistically perfect guitar solo]
 - [A Very Sunny Overanalysis: The ingredients of a great episode of *It's Always Sunny in Philadelphia*]
 - [Do rising rent prices mean worse tacos?]
