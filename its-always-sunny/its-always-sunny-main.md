@@ -7,6 +7,7 @@ This project will center around the show *It’s Always Sunny in Philadelphia*, 
 -	Sexual content
 -	Offensive language and behavior
 -	Psychopathy and antisocial behavior<br>
+
 Some of these themes will be central to the subsequent analysis. While I personally find many of these scenes and episodes to be
 humorous, I do not condone these actions and behaviors themselves. The purpose of this exercise will ultimately be to measure
 whether the inclusion of certain themes and characters in episodes correlates with higher audience approval or greater personal
