@@ -1,6 +1,6 @@
 # About Me
 
-- [![Alt text](bio/linkedin-icon.jpg)](https://www.linkedin.com/in/luke-pulaski-437656200/) LinkedIn
+[<img src="bio/linkedin-icon.jpg" alt="LinkedIn" width="30"/>](https://www.linkedin.com/in/luke-pulaski-437656200/) LinkedIn
 
 
 
