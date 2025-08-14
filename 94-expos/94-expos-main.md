@@ -16,8 +16,8 @@ severely depleting the team's talent pool. Their on-field performance never retu
 Fast-forward ten years, and the Montreal Expos ceased to exist as a franchise, moving to Washington DC and becoming 
 the Nationals. Among other factors, the 1994 players' strike is cited as a primary reason for the team's demise. The 
 1994 Expos were already financially in dire straits and had the second-lowest player payroll in all of MLB, and the strike 
-only exacerbated those issues. Expos management contended at the time and years afterward that the strike deprived the 
-team of additional revenue from regular season and potential playoff games, rendering them unable to sign the players 
+only exacerbated those issues. Expos management contended at the time and years afterward that the strike, which deprived the 
+team of additional revenue from regular season and potential playoff games, rendered them unable to sign the players 
 let go in the offseason. 
 
 In the following study, I test the validity of the claim that, had the strike never occurred, the Expos would have come up 
