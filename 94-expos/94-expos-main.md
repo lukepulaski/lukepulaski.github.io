@@ -2,7 +2,7 @@
 
 ## Summary
 
-On August 11, 1994, with a record of 74-40, the Montreal Expos were the best team in baseball. Despite having the 
+On August 11, 1994, with a record of 74-40, the Montreal Expos owned the best record in baseball. Despite having the 
 second-lowest payroll in Major League Baseball (MLB), they had managed to assemble a team that was on track to finish 
 ahead of baseball's blue-blood franchises in the standings. They were better than the Reds. Better than the Dodgers. 
 Better than those evil pinstriped ghouls known as the Yankees. Yet none of that mattered, as the Montreal Expos (as well as all other 
