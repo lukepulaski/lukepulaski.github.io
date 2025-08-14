@@ -6,7 +6,7 @@ This project will center around the show *It’s Always Sunny in Philadelphia*, 
 -	Violence and death
 -	Sexual content
 -	Offensive language and behavior
--	Psychopathy and antisocial behavior
+-	Psychopathy and antisocial behavior<br>
 Some of these themes will be central to the subsequent analysis. While I personally find many of these scenes and episodes to be
 humorous, I do not condone these actions and behaviors themselves. The purpose of this exercise will ultimately be to measure
 whether the inclusion of certain themes and characters in episodes correlates with higher audience approval or greater personal
@@ -29,4 +29,4 @@ nearly the literal duration of my lifetime. I can think of no better way to pay 
 and put it under a microscope on 400,000x magnification. 
 
 Spoiler alert: I have rated the episodes and I think that "The Gang Gives Frank an Intervention" is the best. If you would like to voice your displeasure 
-at my choice, free free to [email me](mailto:luke.pulaski@gmail.com) or [message me through LinkedIn](https://www.linkedin.com/in/luke-pulaski-437656200/). 
+with my decision, free free to [email me](mailto:luke.pulaski@gmail.com) or [message me through LinkedIn](https://www.linkedin.com/in/luke-pulaski-437656200/). 
