@@ -1,5 +1,9 @@
 # About Me
 
+- [![Alt text](bio/linkedin-icon.jpg)](https://www.linkedin.com/in/luke-pulaski-437656200/) LinkedIn
+
+
+
 # Undergraduate Work
 
 For each project, I have done my best to include all pertitent files and information. However, all
