@@ -18,6 +18,11 @@ as well as copies of my résumé and official UVM transcript.<br>
 
 # Undergraduate Work
 
+This section highlights a few of the papers, coding projects, and other work from my time as an undergraduate at UVM. If you are interested
+in learning more about some of my undergrad projects, I would highly recommend checking out my Undergraduate Research Assistantship work as 
+well as the work pertaining to my Honors College thesis. I've additionally posted a term paper from my Health Economics course as well as some 
+older projects from computer programming courses I took as an underclassman.
+
 The highlights of my undergradute coursework at UVM included:
 - ECON 3500: Econometrics & Applications
 - ECON 4200: Economics of Regulation
