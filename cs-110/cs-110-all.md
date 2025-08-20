@@ -1,18 +1,12 @@
 # University of Vermont (UVM) CS 110 Final Project
 
-Having completed this in the fall semester of 2022 (my sophomore year), I would guess that this 
-is the first large-scale coding project I've ever finished. Prior to taking CS 021, I had taken 
-a half-year elective in computer programming as a senior in high school, but only learned the 
-basic Python syntax and functions during that time. Given my inexperience at the time, it would 
-make sense that this program, while completely functional, is quite crude.
+I completed this project for my Intermediate Programming class in the spring semester of 2023, which was conducted entirely 
+in Java.
 
-The prompt for the final project was fairly open-ended: as I remember it, the main requirement was 
-to construct a playable game (either a rendition of an existing game or a game of our own invention) 
-that had a reasonable level of complexity. I chose to build a program that allows the user to play the 
-well-known game show Deal or No Deal in the Python shell. 
+The prompt was quite simple: the entire class was required to build the game Yahtzee in Java. 
 
 More instructions and background are available in the README file (linked below). If you are interested 
 in downloading and playing the game, it is additionally linked below. I hope you enjoy it!
 
-- [☕ Download Java files](cs-110/project_code)
-- [📄 Download README](README_cs_021.txt)
+- [☕ Download Project Code](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/cs-110/project-code)
+- [📄 Download README](README_cs_110.txt)
