@@ -34,3 +34,7 @@ secure a more long-term future for the Expos in Montreal.
 - Gathered & cleaned team batting and pitching metrics (Baseball Reference)
 - Gathered & cleaned 1994 schedule data and 1994 game log (Retrosheet)
 - Wrote Python code to use team batting and ptiching metrics to simulate a game between two teams
+- Wrote Python code to simulate the rest of the 1994 regular season and playoffs (complete with tiebreaking procedures)
+
+## Next Steps
+- Run 500 simulations of the 1994 season and record results (this could take a long time)
