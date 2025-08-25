@@ -24,3 +24,5 @@ find that the impact of immigration on house prices is significantly higher at t
 house price distribution.
 
 - [📄 Download PDF](honors-thesis.pdf)
+- [🟦 Download Stata data files](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/hcol-thesis/data-files)
+- [🟦 Download Stata Do files (code for regresssions & data cleaning](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/hcol-thesis/data-files)
