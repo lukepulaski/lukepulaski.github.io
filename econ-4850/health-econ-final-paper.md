@@ -17,3 +17,4 @@ give it a read! I've included my Stata code and cleaned dataset below as well.
 
 - [📄 Download PDF](econ-4850-final-paper.pdf)
 - [🟦 Download all Stata files](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/hcol-thesis/stata-code)
+- [🟧 Download presentation slides](econ-4850-final-presentation.pptx)
