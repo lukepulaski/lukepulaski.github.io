@@ -16,3 +16,4 @@ got some particularly salient results. If you are interested, please download a 
 give it a read!
 
 - [📄 Download PDF](econ-4850-final-paper.pdf)
+- [🟦 Download all Stata files](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/hcol-thesis/stata-files)
