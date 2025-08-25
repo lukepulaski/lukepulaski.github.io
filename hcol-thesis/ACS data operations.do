@@ -1,3 +1,5 @@
+/* If you are interested in utilizing this code, please edit filepaths as needed */
+
 /*
 ********************************************************************************
 SETUP
@@ -375,9 +377,6 @@ xtreg immigration shift_share ///
 	L.d_r_lincome L.d.unem_prop L.d.educ_prop ///
 	L.d_agro_prop L.const_prop L.manu_prop, fe cluster(msa_id)
 outreg2 using "/Users/lukepulaski/Library/CloudStorage/OneDrive-UniversityofVermont/THESIS/Results/IV relevance - 1st stage.doc", append
-	
-	
-* Validity test - Cragg-Donald Wald F-test *
 
 
 
@@ -569,17 +568,6 @@ ivqregress iqr d_r_lhp (x_demeaned = shift_share) ///
 	i.year ///
 	, quantile(0.05 0.25 0.5 0.75 0.95)
 outreg2 using "/Users/lukepulaski/Library/CloudStorage/OneDrive-UniversityofVermont/THESIS/Results/Quantile regs (HP).doc", append
-
-
-	
-
-/*
-********************************************************************************
-ROBUSTNESS CHECKS
-********************************************************************************
-*/
-
-/* Adjustment for changes in housing supply */
 
 	
 	
