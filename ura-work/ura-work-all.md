@@ -34,7 +34,6 @@ Knowing exactly where high concentrations of MENA individuals are located could 
 
 ```{r, echo = FALSE, fig.align = "center", out.width = "60%", fig.cap = "Current District Boundaries"}
 knitr::include_graphics("pre-redist.png")
-```
 
 
 
