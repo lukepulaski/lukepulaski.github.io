@@ -3,7 +3,7 @@
 ## Overview
 
 Throughout the Spring semester of 2025, I was fortunate enough to work a paid position as an Undergradute Research Assistant 
-under Professor [Erkmen Aslim](https://www.linkedin.com/in/erkmen-g-aslim-48089637/) of the University of Vermont Department of Economics.
+under Professor Erkmen Aslim of the University of Vermont Department of Economics.
 In conjunction with a team from the Department of Geography and Geosciences at UVM, we conducted the preliminary research to undertake 
 a project to uncover the potential ramifications of adding a new race category to the 2030 United States Census. The ultimate goal of this 
 study will be to investigate how this new race category might impact future federal funding patterns and congressional redistricting efforts.
@@ -48,7 +48,31 @@ state's MENA population lives enclaves within Metro Detroit. That said, this pac
 and Metro Detroit as an example again, redistricting might take place in such a way as to divide the large enclaves of MENA individuals across 4 or 5 districts to make it so that an insignificant proportion 
 of voters in each district are MENA, making it so that their voices are very unlikely to be heard at the district level.
 
+What does all of this mean in the context of this project? Keeping in mind that cracking and packing are common redistricting strategies often used to silence (though sometimes to strengthen, in some 
+cases of packing) voters from disadvantaged groups, we will looking to identify areas with high MENA concentration that are at risk of being redistricted in the wake of the 2030 Census. We would like to 
+get an idea of which MENA-concentrated areas are likely to be "cracked" into non-MENA concentrated districts and which might be "packed" in with other highly MENA-concentrated areas. However, identifying 
+the at-risk districts isn't just a matter of geography; socioeconomics comes into play as well. 
 
+If the MENA population and non-MENA population in a certain area have similar outcomes with regard to metrics like income, health, or usage of public assistance, then perhaps redistricting doesn't pose that 
+much of a threat to the political power of those MENA enclaves. However, if those socioeconomic outcomes are vastly different across those two subsets of the population, redistricting could potentially have 
+very beneficial or very harmful effects on those same MENA enclaves. This is where my work, under the supervision and direction of Professor Aslim, becomes important.
+
+## My Role
+
+The first task was to gather hundreds of datasets, primarily from sources such as the 
+[US Census Bureau American Community Survey](https://data.census.gov/table) (ACS), 
+[Centers for Disease Control and Prevention](https://data.cdc.gov/) (CDC), and 
+[Opportunity Insights](https://opportunityinsights.org/) (OI), that provided data on outcomes such as median household income, incidence of diseases such as diabetes, and the index of economic mobility 
+on the [census tract](https://www.cityhealthdashboard.com/blog-media/what-exactly-is-a-census-tract) level for all US states (though early on in the research process, we were only interested in exploring 
+these outcomes as they pertained to Michigan, as it has the highest MENA concentration of any US state). While many of the datasets I located were ultimately never used, I was 
+responsible for organizing and cleaning all of these datasets in Excel and Stata, ensuring that I had accounted for repeated or missing data points.
+
+The Geography & Geosciences team provided us with a dataset displaying the MENA concentration of every census tract in the United States, so I merged that dataset with all of the individual outcome datasets 
+in Stata. Now, I could easily write Stata code that would display the differences in socioeconomic outcomes across census tracts with high MENA concentration, low MENA concentration, or no MENA concentration 
+at all. I generated and formatted scatterplots and bar charts that I complied into PowerPoint presentations to show the rest of the research team.
+
+Please feel free to take a look at some of my presentations as well as my Stata code. I hope this project interests you as much as it did me. If you would like to learn more about the current state of the 
+project, I might have some answers for you, but I would recommend reaching out to [Professor Erkmen Aslim](https://www.linkedin.com/in/erkmen-g-aslim-48089637/). He may be able to provide you with more details.
 
 - [🟦 Download Stata data files](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/hcol-thesis/data-files)
 - [🟦 Download Stata Do files](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/hcol-thesis/do-files)
