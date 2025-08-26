@@ -31,18 +31,22 @@ worse health outcomes, or has a disproportionately low takeup rate for social pr
 such as hospitals or Social Security and SNAP offices for the benefit of MENA communities. 
 
 Knowing exactly where high concentrations of MENA individuals are located could also affect the process of congressional redistricting further down the line. When it comes to 
-redistricting with regards to MENA communities, there are two main concerns (as there are with any disadvantaged groups of voters): "cracking" and "packing". Let's see how this 
-might affect an enclave of voters that is predominantly MENA. 
+redistricting with regards to MENA communities, there are two main concerns (as there are with any disadvantaged groups of voters): "packing" and "cracking". 
 
-Let's assume that we have two adjacent congressional districts. The district line runs right through an area with an area with an extremely high MENA concentration (let's assume that
-this area is 100% MENA for the sake of simplicity), which is shown in red.
+Consider the graphic below:
 
-"Cracking" is the practice of splitting a bloc of disfavored voters into multiple districts so that their political influence in each of the new districts is too diluted to be effective. 
-With our example districts, the MENA 
 ![Cracking and Packing](cracking-and-packing.png)
-Source: [MIT Election Lab](https://electionlab.mit.edu/research/redistricting)
+*Source: [MIT Election Lab](https://electionlab.mit.edu/research/redistricting)*
 
+"Packing" is the practice of concentrating as many members of a voting bloc into as few districts as possible, allowing members of another voting bloc to have more political power in other districts.
+When it comes to the proper representation of MENA individuals at the congressional district level, packing MENA individuals into a few districts can actually carry some benefits. If a state has a large 
+enclave of MENA individuals, as is the case in our example state, grouping as many of those communities as possible into a single district would allow for MENA voters in that district to elect a 
+representative that will better represent their own interests. This redistricting strategy could be particularly beneficial for the MENA population in a state like Michigan, where the vast majority the 
+state's MENA population lives enclaves within Metro Detroit. That said, this packing strategy might greatly dilute the political power of MENA individuals living outside those main enclaves.
 
+"Cracking" is the practice of splitting members of a voting bloc into multiple districts so that members' political influence in each of the new districts is too diluted to be effective. To use Michigan 
+and Metro Detroit as an example again, redistricting might take place in such a way as to divide the large enclaves of MENA individuals across 4 or 5 districts to make it so that an insignificant proportion 
+of voters in each district are MENA, making it so that their voices are very unlikely to be heard at the district level.
 
 
 
