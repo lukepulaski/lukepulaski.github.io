@@ -32,9 +32,11 @@ such as hospitals or Social Security and SNAP offices for the benefit of MENA co
 
 Knowing exactly where high concentrations of MENA individuals are located could also affect the process of congressional redistricting further down the line.
 
-```{r, echo = FALSE, fig.align = "center", out.width = "60%", fig.cap = "Current District Boundaries"}
-knitr::include_graphics("pre-redist.png")
+![Current District Boundaries](pre-redist.png)
 
+![Hypothetical District Boundaries where MENA enclave is "cracked"](cracking.png)
+
+![Hypothetical District Boundaries where MENA enclave is "packed"](packing.png)
 
 
 
