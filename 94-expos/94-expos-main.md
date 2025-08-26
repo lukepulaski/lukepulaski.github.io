@@ -26,7 +26,7 @@ the 1994 MLB season. I will repeatedly run this simulation until I find the numb
 in the 1994 postseason. Using a combination of the team's real-life regular season attendance figures (which I will extrapolate 
 into the playoffs using league-wide playoff attendance trends) as well as ticket price, concession, and parking data, I will 
 estimate the Expos' expected revenue from playing the remainder of the 1994 season. An analysis of the Expo's estimated finances 
-(estimated revnue and operating cost data) will then either provide evidence for or against the notion that a full 1994 season 
+(estimated revenue and operating cost data) will then either provide evidence for or against the notion that a full 1994 season 
 would have allowed them to retain all of their players, keeping the team competitive and maintaining enough fan interest to 
 secure a more long-term future for the Expos in Montreal.
 
