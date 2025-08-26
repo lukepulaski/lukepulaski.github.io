@@ -30,13 +30,17 @@ able to secure for their districts. If new Census data demonstrates that a certa
 worse health outcomes, or has a disproportionately low takeup rate for social programs, this could result in an increased proportion of federal funding flowing into institutions 
 such as hospitals or Social Security and SNAP offices for the benefit of MENA communities. 
 
-Knowing exactly where high concentrations of MENA individuals are located could also affect the process of congressional redistricting further down the line.
+Knowing exactly where high concentrations of MENA individuals are located could also affect the process of congressional redistricting further down the line. When it comes to 
+redistricting with regards to MENA communities, there are two main concerns (as there are with any disadvantaged groups of voters): "cracking" and "packing". Let's see how this 
+might affect an enclave of voters that is predominantly MENA. 
 
-![Current District Boundaries](pre-redist.png)
+Let's assume that we have two adjacent congressional districts. The district line runs right through an area with an area with an extremely high MENA concentration (let's assume that
+this area is 100% MENA for the sake of simplicity), which is shown in red.
 
-![Hypothetical District Boundaries where MENA enclave is "cracked"](cracking.png)
-
-![Hypothetical District Boundaries where MENA enclave is "packed"](packing.png)
+"Cracking" is the practice of splitting a bloc of disfavored voters into multiple districts so that their political influence in each of the new districts is too diluted to be effective. 
+With our example districts, the MENA 
+![Cracking and Packing](cracking-and-packing.png)
+Source: [MIT Election Lab](https://electionlab.mit.edu/research/redistricting)
 
 
 
