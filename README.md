@@ -34,6 +34,7 @@ The highlights of my undergradute coursework at UVM included:
 - CS 021: Computer Programming I (Python)
 - CS 110: Intermediate Programming (Java)
 
+A few of my most notable academic projects include:
 - [Undergraduate Research Assistantship Work](ura-work/ura-work-all.html)
 - [UVM Honors College Thesis](hcol-thesis/hcol-thesis-all.html)
 - [Health Economics Final Paper](econ-4850/health-econ-final-paper.html)
