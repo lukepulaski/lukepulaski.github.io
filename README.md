@@ -44,18 +44,12 @@ A few of my most notable academic projects include:
 # Personal Projects
 
 This section consists of additional work I am doing on my own time. Through these projects, I will mostly 
-explore topics that interest me such as baseball, music, and my favorite TV shows through a lens of statistical 
-analysis. Though most of these projects probably won't be very "economic" in nature, some of my research 
-ideas are more akin to traditional economic research questions. 
+explore topics that interest me through a lens of statistical analysis. 
 
 I hope to display my ability to formulate and understand a niche problem, analyze relevant data to propose answers, 
 and present my findings in an engaging manner. I also hope that these pieces will demonstrate my competency 
 in platforms like Microsoft Excel, Python, and R, and my overall skills in research, data cleaning, data anlysis, 
 and written communication.
-
-I envision the final drafts of these projects to be written in the style of blog posts (an overall objective and 
-informative tone with little bits of my subjective opinions and informal language) while maintaining the basic 
-structure of a research paper.
 
 As these projects progress, I will do my best to provides general updates on the status of each one. 
 
