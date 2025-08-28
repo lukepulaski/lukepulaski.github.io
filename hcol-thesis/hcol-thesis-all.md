@@ -10,10 +10,6 @@ I additionally read and analyzed individual papers recommended to me by my profe
 most of which came from various United States Census Bureau datasets, was cleaned in MS Excel and Stata, as
 was new variable construction and generation. All regressions were run in Stata as well.
 
-I have done my best to find and include any relevant material, but apologize if there are any missing datasets or 
-chunks of code. If you notice a missing component that you are interested in seeing, please reach out to me I will 
-attempt to locate it for you. I thank you in advance for your patience. 
-
 ABSTRACT: This study investigates the impact of foreign immigration on rental rates and owner-
 occupied house prices in metropolitan areas in the United States. Using a panel dataset that covers
 381 American metropolitan areas from 2013 to 2022, I demonstrate that immigration may have a
