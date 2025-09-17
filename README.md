@@ -14,7 +14,7 @@ If you are interested in connecting, I would love to get in touch with you! I've
 as well as copies of my résumé and official UVM transcript.<br>
 
 [<img src="bio/email-icon.jpg" alt="Email" width="30"/>](mailto:luke.pulaski@gmail.com) [<img src="bio/linkedin-icon.jpg" alt="LinkedIn" width="30"/>](https://www.linkedin.com/in/luke-pulaski-437656200/) [<img src="bio/github-icon.jpg" alt="GitHub" width="30"/>](https://www.github.com/lukepulaski)<br>
-[📄 Résumé](bio/resume.pdf)<br>
+[📄 Résumé](bio/resume.docx)<br>
 [📄 Official Transcript](bio/official-transcript.pdf)
 
 # Undergraduate Work
