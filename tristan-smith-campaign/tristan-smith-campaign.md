@@ -7,7 +7,5 @@ mstrack_caption <- "Mr. Smith (circled, lying in front) was my (circled, standin
 knitr::include_graphics("mstrack.png")
 ```
 
-![Caption](mstrack.png)
-
 [Campaign page](https://www.smithforlynn.com/)
 
