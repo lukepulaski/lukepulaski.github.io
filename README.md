@@ -41,19 +41,8 @@ A few of my most notable academic projects include:
 - [Computer Programming I (Python) Final Project](cs-021/cs-021-all.html)
 - [Intermediate Programming (Java) Final Project](cs-110/cs-110-all.html)
 
-# Personal Projects
+# Other Projects (Post-graduation)
 
-This section consists of additional work I am doing on my own time. Through these projects, I will mostly 
-explore topics that interest me through a lens of statistical analysis. 
 
-I hope to display my ability to formulate and understand a niche problem, analyze relevant data to propose answers, 
-and present my findings in an engaging manner. I also hope that these pieces will demonstrate my competency 
-in platforms like Microsoft Excel, Python, and R, and my overall skills in research, data cleaning, data anlysis, 
-and written communication.
 
-As these projects progress, I will do my best to provides general updates on the status of each one. 
 
-If you have any suggestions concerning my ongoing or completed projects or have ideas for small-scale data analyses 
-that you would like to see, please do not hesistate to reach out to me! 
-
-I hope you enjoy!
