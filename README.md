@@ -43,6 +43,7 @@ A few of my most notable academic projects include:
 
 # Other Projects (Post-graduation)
 
+- [Voting Data Analysis - Tristan Smith's Campaign for Lynn School Committee](tristan-smith-campaign/tristan-smith-campaign.html)
 
 
 
