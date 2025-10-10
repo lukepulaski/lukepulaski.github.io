@@ -2,7 +2,7 @@
 
 ## Overview
 
-Since September of 2025, I have been contributing to [Tristan Smith's campaign for a seat on the school committee](https://www.smithforlynn.com/) of Lynn, Massachusetts, a mid-size city north of Boston and adjacent to my hometown of Swampscott. Although plenty of volunteeers have generously showed up to canvass and hold signs on roadside islands, his campaign 
+Since September of 2025, I have been contributing to [Tristan Smith's campaign for a seat on the school committee](https://www.smithforlynn.com/) of Lynn, Massachusetts, a mid-size city north of Boston and adjacent to my hometown of Swampscott. 
 
 ## Background
 
@@ -29,8 +29,17 @@ underdog to actually being given a real shot at securing the Democratic nominati
 While Mr. Smith ultimately [fell just short of Jenny Armini](https://ballotpedia.org/Tristan_Smith) in the Democratic primary, I am extremely proud of him for the campaign he ran and for never wavering from 
 what he believed in.
 
-All of these experiences motivated me to reach back out to Mr. Smith when I learned of his candidacy for a seat on the Lynn School Committee. 
+All of these experiences motivated me to reach back out to Mr. Smith when I learned of his candidacy for a seat on the Lynn School Committee. This time around, my 
+role as a volunteer for his campaign has been far more behind-the-scenes. In lieu of canvassing, I have been assisting is campaign by conducting analyses of both present and 
+historical voting data to provide recommendations for voter strategies.
 
 ## My Role
 
-Because the election is still ongoing, I am unfortunately not at liberty to publish the results of the work I have conducted for Mr. Smith's campaign. I will post all data files (raw and cleaned), data extraction and cleaning programs, and finalized reports after the polls close at 8 PM on November 4, 2025. 
+Using historical election result data provided to me by Mr. Smith's team, as well as results from the 2025 Lynn Preliminary Election in early September, I have been tasked with
+identifying areas of the city that have historically high voter turnout rates as well as identifying the most optimal areas to focus campaigning efforts. I have written Python programs to extract 
+the relevant voting data from all elections held in the city of Lynn going back to 2015. This proved to be a significant challenege, as the data was given to me as a series of PDFs containing irregularly
+shaped tables. Due to these challeneges, I found myself having to undertake some cleaning and organization in Excel, though I was able to format the data neatly enough for export into other statistical analysis 
+platforms. I then composed an extensive report outlining my findings using R Markdown, implementing a variety of helpful interactive data visualizations.
+
+Because the election is still ongoing, I am unfortunately not at liberty to publish the results of the work I have conducted for Mr. Smith's campaign. I will post all data files (raw and cleaned), data 
+extraction and cleaning programs, and finalized reports after the polls close at 8 PM on November 4, 2025. 
