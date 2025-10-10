@@ -44,7 +44,7 @@ A few of my most notable academic projects include:
 # Other Projects (Post-graduation)
 
 This section houses projects I've conducted in my time after graduation. Right now, my main area of focus is on volunteering on data 
-analysis project for a local school committee campaign. 
+analysis projects for a local school committee campaign. 
 
 - [Voting Data Analysis - Tristan Smith's Campaign for Lynn School Committee](tristan-smith-campaign/tristan-smith-campaign.html)
 
