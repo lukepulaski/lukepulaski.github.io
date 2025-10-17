@@ -2,7 +2,9 @@
 
 ## Overview
 
-Since September of 2025, I have been contributing to [Tristan Smith's campaign for a seat on the school committee](https://www.smithforlynn.com/) of Lynn, Massachusetts, a mid-size city north of Boston and adjacent to my hometown of Swampscott. 
+Since September of 2025, I have been contributing to [Tristan Smith's campaign for a seat on the school committee](https://www.smithforlynn.com/) of Lynn, Massachusetts, a mid-size city 
+north of Boston. To inform Mr. Smith's campaign strategy, using Python, Excel, and R, I have analyzed both historical voting data and the geographical distribution of his supporters to 
+pinpoint the most optimal portions of the city to target in canvassing efforts.
 
 ## Background
 
