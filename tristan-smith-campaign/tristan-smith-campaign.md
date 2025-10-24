@@ -39,8 +39,8 @@ historical voting data to provide recommendations for voter strategies.
 
 Using historical election result data provided to me by Mr. Smith's team, as well as results from the 2025 Lynn Preliminary Election in early September, I have been tasked with
 identifying areas of the city that have historically high voter turnout rates as well as identifying the most optimal areas to focus campaigning efforts. I have written Python programs to extract 
-the relevant voting data from all elections held in the city of Lynn going back to 2015. This proved to be a significant challenege, as the data was given to me as a series of PDFs containing irregularly
-shaped tables. Due to these challeneges, I found myself having to undertake some cleaning and organization in Excel, though I was able to format the data neatly enough for export into other statistical analysis 
+the relevant voting data from all elections held in the city of Lynn going back to 2015. This proved to be a significant challenge, as the data was given to me as a series of PDFs containing irregularly
+shaped tables. Due to these challenges, I found myself having to undertake some cleaning and organization in Excel, though I was able to format the data neatly enough for export into other statistical analysis 
 platforms. I then composed an extensive report outlining my findings using R Markdown, implementing a variety of helpful interactive data visualizations.
 
 Because the election is still ongoing, I am unfortunately not at liberty to publish the results of the work I have conducted for Mr. Smith's campaign. I will post all data files (raw and cleaned), data 
