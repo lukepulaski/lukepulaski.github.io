@@ -44,4 +44,4 @@ shaped tables. Due to these challenges, I found myself having to undertake some 
 platforms. I then composed an extensive report outlining my findings using R Markdown, implementing a variety of helpful interactive data visualizations.
 
 Because the election is still ongoing, I am unfortunately not at liberty to publish the results of the work I have conducted for Mr. Smith's campaign. I will post all data files (raw and cleaned), data 
-extraction and cleaning programs, and finalized reports after the polls close at 8 PM on November 4, 2025. 
+extraction and cleaning programs, and finalized reports on November 5, 2025 (the day after the polls close on Election Day). 
