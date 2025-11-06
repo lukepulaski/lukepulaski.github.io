@@ -29,7 +29,7 @@ I have posted the finalized report, as well as all data file and extraction and 
 
 I am happy to announce that, on the evening of November 4, 2025, [Mr. Smith won a seat on Lynn School Committee](https://itemlive.com/2025/11/04/smith-tops-school-race/). Not only did he secure a seat, but he received the most votes of any candidate in the race. Overall, his campaign was a resounding success.
 
-![General Election Results](2025_gen_results_table.png){fig.align="center"}
+![General Election Results](2025_gen_results_table.png)
 
 In the coming days, the results of the 2025 Lynn General Election (broken down by precinct) should be open to the public. Once this data is available, I plan to analyze these results and assess the accuracy of the predictions I made in my report. I would also like to see how much he was able to improve turnout or how many additional votes he won in precincts where I recommended he focus his campaign. I hope to have this post-analysis up as soon as possible. I unfortunately can't give a set date because there is no set date for the release of the 2025 election results.
 
