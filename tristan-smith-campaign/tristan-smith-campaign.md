@@ -32,20 +32,24 @@ I am happy to announce that, on the evening of November 4, 2025, [Mr. Smith won 
 ```{r gen_results_table, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center"}
 library(knitr)
 library(kableExtra)
+library(scales)
+library(dplyr)
 
 results_df <- data.frame(
-  Candidate = c("Tristan Smith", "Lorraine Gately", "Andrea Satterwhite", "Brian Castellanos", "Brenda Ortiz McGrath", "Lenny Peña", "Eric Dugan", "Stacy Bryant-Brown", "Julie Pyram Dorsey"),
+  Candidate = c("Tristan Smith", "Lorraine Gately", "Andrea Satterwhite", "Brian Castellanos", 
+                "Brenda Ortiz McGrath", "Lenny Peña", "Eric Dugan", 
+                "Stacy Bryant-Brown", "Julie Pyram Dorsey"),
   Votes = c(3609, 3351, 3332, 3236, 3046, 2992, 2541, 2537, 1464),
   Percent = c(0.1382, 0.1284, 0.1276, 0.1239, 0.1167, 0.1146, 0.0973, 0.0972, 0.0561)
 )
 
 results_df_clean <- results_df %>%
-  mutate(     
-    `Votes` = comma(`Votes`), 
-    `Percent` = percent(`Percent`, accuracy = 0.2)
-    ) %>%
+  mutate(
+    Votes = comma(Votes), 
+    Percent = percent(Percent, accuracy = 0.1)
+  )
 
-kable(results_df, caption = "2025 Lynn General Election Results - School Committee") %>%
+kable(results_df_clean, caption = "2025 Lynn General Election Results – School Committee") %>%
   kable_styling(full_width = FALSE)
 ```
 
