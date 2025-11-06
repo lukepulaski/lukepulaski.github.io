@@ -29,6 +29,26 @@ I have posted the finalized report, as well as all data file and extraction and 
 
 I am happy to announce that, on the evening of November 4, 2025, [Mr. Smith won a seat on Lynn School Committee](https://itemlive.com/2025/11/04/smith-tops-school-race/). Not only did he secure a seat, but he received the most votes of any candidate in the race. Overall, his campaign was a resounding success.
 
+```{r gen_results_table, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center"}
+library(knitr)
+library(kableExtra)
+
+results_df <- data.frame(
+  Candidate = c("Tristan Smith", "Lorraine Gately", "Andrea Satterwhite", "Brian Castellanos", "Brenda Ortiz McGrath", "Lenny Peña", "Eric Dugan", "Stacy Bryant-Brown", "Julie Pyram Dorsey"),
+  Votes = c(3609, 3351, 3332, 3236, 3046, 2992, 2541, 2537, 1464),
+  Percent = c(0.1382, 0.1284, 0.1276, 0.1239, 0.1167, 0.1146, 0.0973, 0.0972, 0.0561)
+)
+
+results_df_clean <- results_df %>%
+  mutate(     
+    `Votes` = comma(`Votes`), 
+    `Percent` = percent(`Percent`, accuracy = 0.2)
+    ) %>%
+
+kable(results_df, caption = "2025 Lynn General Election Results - School Committee") %>%
+  kable_styling(full_width = FALSE)
+```
+
 In the coming days, the results of the 2025 Lynn General Election (broken down by precinct) should be open to the public. Once this data is available, I plan to analyze these results and assess the accuracy of the predictions I made in my report. I would also like to see how much he was able to improve turnout or how many additional votes he won in precincts where I recommended he focus his campaign. I hope to have this post-analysis up as soon as possible. I unfortunately can't give a set date because there is no set date for the release of the 2025 election results.
 
 ## Materials
