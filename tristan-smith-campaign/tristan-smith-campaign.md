@@ -27,7 +27,7 @@ I have posted the finalized report, as well as all data file and extraction and 
 
 ## Update - November 5, 2025
 
-I am happy to announce that, on the evening of November 4, 2025, [Mr. Smith won a seat on Lynn School Committee](https://itemlive.com/2025/11/04/smith-tops-school-race/). Not only did he secure a seat, but he received the most votes of any candidate in the race. Overall, his campaign was a resounding success.
+I am happy to announce that, on the evening of November 4, 2025, [Mr. Smith won a seat on Lynn School Committee](https://itemlive.com/2025/11/04/smith-tops-school-race/). Not only did he secure a seat, but he received the most votes of any candidate in the race. Below are the unofficial results from around 9 PM on Election Night:
 
 ![General Election Results](2025_gen_results_table.png)
 
