@@ -1,0 +1,744 @@
+---
+title: "Analysis of Lynn (MA) Voting Data, 2015-present"
+author: "Luke Pulaski"
+output:
+  pdf_document:
+    keep_tex: true
+    toc: true
+    latex_engine: xelatex
+mainfont: Helvetica
+abstract: |
+  \noindent This report was conducted for Tristan Smith's campaign for a seat on the School Committee of Lynn, Massachusetts. In this report, to better understand voter turnout patterns across Lynn's administrative divisions and analyze the past performance of Lynn School Committee candidates, I utilize a sample of data from 17 elections that occurred within the city from 2015 to 2025. I use the observations derived from these analyses to provide recommendations to Mr. Smith concerning areas of the city where he should focus most of his campaign's resources. 
+bibliography: references.bib
+link-citations: true
+csl: https://www.zotero.org/styles/apa
+---
+
+```{css header_format, echo = FALSE, message = FALSE, warning = FALSE}
+h1.title {
+  text-align: center;
+} .author {
+  text-align: center;
+} .abstract {
+  text-align: center;
+}
+```
+
+```{r libraries, echo = FALSE, include = FALSE, message = FALSE, warning = FALSE}
+library(dplyr)
+library(ggplot2)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(openxlsx)
+library(scales)
+library(stringr)
+library(tidyr)
+library(tools)
+```
+
+```{r get_dfs, echo = FALSE, message = FALSE, warning = FALSE}
+filename <- "/Users/lukepulaski/Desktop/Tristan Smith Campaign/Lynn Election Data.xlsx"
+
+sample_df <- read.xlsx(filename, sheet = "Sampled Elections")
+
+df_list <- list()
+
+for (x in 1:14) {
+  sheet_name <- paste0("Table ", x)
+  df_list[[x]] <- read.xlsx(filename, sheet = sheet_name)
+}
+
+for (x in seq_along(df_list)) {
+  names(df_list[[x]]) <- gsub("\\.\\.", ". ", names(df_list[[x]]))
+  names(df_list[[x]]) <- gsub("\\.(?! )", " ", names(df_list[[x]]), perl = TRUE)
+}
+
+df_1 <- df_list[[1]]
+df_2 <- df_list[[2]]
+df_3 <- df_list[[3]]
+df_4 <- df_list[[4]]
+df_5 <- df_list[[5]]
+df_6 <- df_list[[6]]
+df_7 <- df_list[[7]]
+df_8 <- df_list[[8]]
+df_9 <- df_list[[9]]
+df_10 <- df_list[[10]]
+df_11 <- df_list[[11]]
+df_12 <- df_list[[12]]
+df_13 <- df_list[[13]]
+df_14 <- df_list[[14]]
+
+
+df_2_int <- df_2 %>%
+  filter(`Name` == '2025 Lynn Preliminary')
+df_12_int <- df_12 %>%
+  filter(`Candidate` == 'Tristan Smith')
+df_15 <- merge(df_2_int, df_12_int, by = 'Precinct') %>%
+  select(`Precinct`, `Percent Turnout`, `Percent of Votes in Preliminary`)
+
+
+df_16 <- data.frame(
+  Name = character(),
+  Precinct = character(),
+  Percent_Turnout = double(),
+  NVT = numeric(),
+  stringsAsFactors = FALSE
+)
+for (i in 1:nrow(df_6)) {
+  election <- df_6[i, "Name"]
+  city_turnout <- df_6[i, "Percent Turnout"]
+
+  for (j in 1:nrow(df_1)) {
+    if (df_1[j, "Name"] == election) {
+      prop <- df_1[j, "Percent Turnout"] / city_turnout
+      new_row <- list(
+        Name = election,
+        Precinct = df_1[j, "Precinct"],
+        Percent_Turnout = df_1[j, "Percent Turnout"],
+        NVT = prop
+      )
+      df_16 <- rbind(df_16, new_row)
+    }
+  }
+}
+
+```
+
+```{r df_cleaning, echo = FALSE, include = FALSE, message = FALSE, warning = FALSE}
+# Sampled Elections DF
+sample_df$`Date` <- as.Date(sample_df$`Date`, origin = "1899-12-30")
+sample_df$`Date` <- format(sample_df$`Date`, "%B %d, %Y")
+sample_df$Date <- sub(" 0", " ", sample_df$Date) 
+
+sample_df %>%
+  arrange(`Date`)
+
+# DF 3
+df_3_clean <- df_3 %>%
+  mutate(
+    `Cum. Registered Voters` = comma(`Cum. Registered Voters`),       
+    `Cum. Ballots Cast` = comma(`Cum. Ballots Cast`), 
+    `Cum. Voter Turnout` = percent(`Cum. Percent Turnout`, accuracy = 0.1)
+    ) %>%
+  arrange(`Ward`) %>%
+  select(-`Cum. Percent Turnout`)
+
+# DF 4
+df_4$`Precinct` <- factor(df_4$`Precinct`, 
+                        levels = df_4$`Precinct`[order(df_4$`Cum. Percent Turnout`, decreasing = FALSE)])
+
+# DF 5
+df_5$`Precinct` <- factor(df_5$`Precinct`, 
+                        levels = df_5$`Precinct`[order(df_5$`Cum. Percent Turnout`, decreasing = FALSE)])
+
+# DF 6
+df_6_clean <- df_6 %>%
+  mutate(
+    `Registered Voters` = comma(`Registered Voters`),       
+    `Ballots Cast` = comma(`Ballots Cast`), 
+    `Voter Turnout` = percent(`Percent Turnout`, accuracy = 0.1)
+    ) %>%
+  arrange(`Date`) %>%
+  select(-`Date`, -`Percent Turnout`)
+
+# DF 10
+df_10_clean <- df_10 %>%
+  mutate(`Vote Share` = percent(`Percent of Votes`, accuracy = 0.1)) %>%
+  arrange(desc(`Percent of Votes`)) %>%
+  select(-`Place on Ballot`, -`Percent of Votes`)
+tristan <- which(df_10_clean$Candidate == "Tristan Smith")
+
+# DF 11
+df_11_clean <- na.omit(df_11)
+
+# DF 12
+df_12_clean <- na.omit(df_12)
+
+# DF 13
+df_13_clean <- na.omit(df_13)
+
+# DF 14
+df_14_clean <- df_14
+df_14_clean$`Place on Ballot` <- as.factor(df_14_clean$`Place on Ballot`)
+
+```
+
+\newpage
+
+# Introduction
+
+On September 2, 2025, 1,896 voters in Lynn, Massachusetts cast their ballots for the city preliminary. In this election cycle, some candidates, such as Mayor Jared Nicholson, are running unopposed for reelection to their current posts. Others, such as the multiple city council incumbents that face challengers for their positions, are confronted with a tougher path to reelection. However, perhaps the most compelling developments this election cycle (as has been the case in past cycles) has been the tightly contested race for Lynn School Committee. 
+
+There are eight seats on Lynn School Committee [@lynnsc], one of which is occupied by the mayor (who serves as chairman of the committee), and another of which is occupied by an appointed secretary. The remaining six seats are up for election every biannual election cycle. In 2025, a field of 9 candidates, which include 5 incumbents and 4 challengers, is vying for those seats. 
+
+On their ballots, voters are allowed to select up to 6 School Committee candidates. In the 2025 Preliminary, there were 1,896 ballots cast, but the sum of all votes for all candidates came out to 6,479, meaning voters that showed up to cast a ballot selected, on average, 3.4 candidates. For this reason, election results for School Committee are not expressed as a percentage of ballots cast, rather, they are given as a percentage of total votes (I will refer to this percent as *vote share*). In local elections, after the polls close, the raw number of votes for each candidate are summed up to calculate the total number of votes given to School Committee candidates. *Vote share* is the percentage of of that total that went to each candidate. Table 1 displays the vote share in the 2025 Preliminary for each candidate. The incumbency status of all candidates is also denoted.
+
+```{r df_10, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.dim = c(10, 8)}
+
+df_10_clean %>%
+  knitr::kable(
+    format = "latex",
+    booktabs = TRUE,
+    linesep = "",
+    caption = "2025 Lynn Preliminary Results (School Committee Candidates)",
+    align = "lccc"
+  ) %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  row_spec(tristan, background = "yellow")
+```
+
+The preliminary results indicate that the incumbent candidates in this race are leading the pack, with 5 of the top 6 candidates by preliminary vote share having occupied a seat on the School Committee the previous term. The one challenger who is right in the mix with those incumbents is Tristan Smith, who received 11.8% of all votes in the 2025 Preliminary. 
+
+Mr. Smith's preliminary performance, especially for a first-time School Committee candidate who has never served in an elected office, is extremely admirable, but there is obvious room for improvement. As the home stretch of the 2025 election cycle draws nearer, a plan for how to effectively allocate the limited resources of his campaign is necessary to maximize both voter turnout and vote-getting in the 2025 General Election. Using recent historical data of Lynn's voting patterns in federal, state, and local elections dating back to 2015, including voting data from the 2025 Preliminary, I will attempt to identify areas of the city where Mr. Smith should focus his campaign's efforts to increase his chances of earning a School Committee seat.
+
+In the subsequent analysis, I seek to answer two primary questions:
+
+a) Which parts of the city historically have had the highest voter turnout rates?
+b) In which parts of the city could Mr. Smith potentially gain additional votes in the general election?
+
+# Data Description
+
+## Lynn Administrative Divisions
+
+Figure 1 (located on the next page) is a map of the administrative divisions of Lynn. The city is divided into seven administrative wards, each of which is represented by a different color on the map (Ward 1 is red, Ward 2 is teal, Ward 3 is orange, Ward 4 is purple, Ward 5 is green, Ward 6 is blue, and Ward 7 is gold). Each ward is divided into 4 precincts; on the map, precincts within a ward are portrayed as different shades of that ward's color. Two precincts, Ward 1, Precinct 2 and Ward 4, Precinct 3, are divided into sub-precincts, but, as the city administration does, I will treat these sub-precincts as their own separate precincts. This leaves us with a total of 30 precincts.
+
+On the map, precinct names are formatted as $(ward)-(precinct)$. When referring to particular precincts throughout this report, it will be formatted as $W(ward)P(precinct)$. So, for example, while Ward 1, Precinct 1 would be written as 1-1 on the map, it will be referred to as W1P1 throughout this report. 
+
+![City of Lynn Wards, Precincts, and State Legislative Districts [@lynnmap]](Lynn_ward_precinct_map.png)
+
+Now that I have established the administrative divisions of the city, it is worth noting that a seat on Lynn School Committee is chosen at-large, meaning it does not matter how many votes or what vote share a candidate receives from each ward or precinct; winning a seat only comes down to what percentage of ballots they receive citywide (basically, posts elected at-large are not decided by some Electoral College-style format). So, candidates like Mr. Smith aren't necessarily obligated to spend equal amounts of time and energy campaigning in all precincts of the city, rather, they are free to target precincts in which they feel their return on their investment of campaign resources will be maximized.
+
+Of course, Mr. Smith has attempted and will continue to attempt to connect with the entire city electorate. Prior to the 2025 Preliminary, Mr. Smith and other campaign staff visited almost all 30 precincts twice, knocking on doors and handing out informational leaflets. However, given that the end goal is maximize vote share, in the final few weeks of the campaign, it is imperative the time and materials available to Mr. Smith, his staff, and his volunteers be used to contact areas with large concentrations of willing voters. 
+
+## Sampled Elections
+
+Historical election result data for this analysis was sourced from the "Election Results" folder on the City of Lynn's official website [@lynnelection]. This folder contains sheets of data from elections going all the way back to 1991, but, by request of Mr. Smith, I only consider elections from 2015 to the present day. This leaves me with a sample of 17 elections that provide the most accurate reflection possible of modern-day voting patterns throughout the city.
+
+Table 2 provides details on all 17 sampled elections. The levels of elections within this sample vary from federal (in which candidates for President/Vice President, U.S. Senator, and U.S. Representative, and other federal offices are on the ballot) to state (in which candidates for State Senator, State Representative, State Attorney General, and other state offices are on the ballot) to local (in which candidates for Mayor, City Councilor, and School Committee are on the ballot). This sample also includes a mix of general elections, primaries, and preliminaries (which are essentially primaries for local general elections). Data from one municipal special election was readily available and included in the sample as well. 
+
+Each data sheet gives three principal metrics: the number of registered voters in the election, the number of ballots cast, and the voter turnout (ballots cast as a percentage of registered voters). The candidates for all offices in each election are listed in the order in which they appeared to voters on their ballots, and the total number of votes they received are displayed. These city-wide vote totals, as well as the registered voters and ballots cast totals are also broken down to show results at the precinct level.
+
+```{r sample_table, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.dim = c(10, 8)}
+
+sample_df %>%
+  knitr::kable(
+    format = "latex",
+    booktabs = TRUE,
+    linesep = "",
+    caption = "Sampled Elections (2015-present)",
+    align = "llll"
+  ) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+I must also mention that data from state elections that share years with presidential elections (2020 and 2024) is displayed by the city website on the same data sheet. However, I classify these as a single election because candidates for positions at both the federal and state level were shown on the same ballot to the same cohort of voters. The names I give to each election are the names the city of Lynn gives to each data sheet corresponding to each election. Ultimately, I am not too concerned with accurately distinguishing between federal and state elections because voting behavior in local elections is the primary focus of this analysis.
+
+# When and where is voter turnout the highest?
+
+## By election
+
+Table 3 displays the citywide voting data for all sampled elections as described in the previous section. It shows the number of registered voters in each election, ballots cast by those voters, and voter turnout, which is calculated at the city level as follows:
+
+$$
+turnout_i = \frac{ballots_i}{voters_i}
+$$
+
+Turnout in election $i$ is calculated dividing the total ballots cast in election $i$ by the total registered voters in that same election. 
+
+```{r df_6, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.dim = c(10, 8)}
+
+df_6_clean %>%
+  knitr::kable(
+    format = "latex",
+    booktabs = TRUE,
+    linesep = "",
+    caption = "Turnout by Election",
+    align = "lccc"
+  ) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+Unsurprisingly, local elections across the board see the lowest citywide turnout of any election level. This could be because primaries and preliminaries are not as widely and intensely advertised to the public as general elections. On the part of the electorate itself, it could be because voters don't have the time or means to get to their polling places for primaries and preliminaries or because they don't believe that voting in a primary or preliminary is a worthwhile endeavor. Nevertheless, given recent turnout numbers, it is unreasonable for Lynn voters to turn out at rates of even 30% for the upcoming general election; somewhere in the range of 15-25% seems far more plausible.
+
+Also unsurprisingly, Lynn voters turn out at higher rates to general elections than their corresponding primaries or preliminaries, perhaps for the same aforementioned reasons. Regardless of what the root cause might be, the simple fact that turnout was low in the 2025 Preliminary is not at all alarming, as turnout in the general election should be comparatively higher.
+
+What is actually alarming is that participation in local elections seems to have been trending downward over the past decade. In 2015, 22% of voters cast a ballot in the Lynn General Election, but just under 16% did so in 2023. Given this prior trend and a turnout rate of just 3% in the 2025 Preliminary, prospects for solid turnout in the general election are not great. Despite this rather negative outlook, Mr. Smith and other candidates throughout the city are hoping to at least temporarily reverse this drop in citywide turnout through their vigorous campaigning.
+
+In all, the answer to *when* voter turnout is the highest is quite simple: during general elections where high-level candidates (such as presidential or senatorial candidates) are on the ballot. Unfortunately, the upcoming Lynn General Election does not meet all of those criteria, so a high rate of voter turnout overall should not be expected. That said, turnout in general elections always tops turnout in preliminaries, so there are plenty of voters still out there for Mr. Smith to win over.
+
+## By ward
+
+To determine *where* voter turnout is the highest in the city of Lynn, I will start by looking at ward-level voter turnout. While this won't allow for a very granular view of where Lynn's most dependable pockets of voters lie, it might lend some insights into relatively larger areas of the city that are generally advisable to target.
+
+The cumulative voter turnout of each of Lynn's 7 wards over the course of all sampled elections are shown in Table 3. I calculate cumulative turnout at the ward level as such:
+
+$$
+turnout_{i} = \frac{\sum_{i = 1}^{17} ballots_{i}}{\sum_{i = 1}^{17} voters_{i}}
+$$
+
+where $\sum_{i = 1}^{17} ballots_{i}$ (cumulative ballots cast) is the sum of the ballots cast in a given ward in each of the 17 sampled elections and $\sum_{i = 1}^{17} voters_{i}$ (cumulative registered voters) is the sum of the number of registered voters in that ward in each of the 17 sampled elections.
+
+```{r df_3, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.dim = c(10, 8)}
+
+df_3_clean %>%
+  knitr::kable(
+    format = "latex",
+    booktabs = TRUE,
+    linesep = "",
+    caption = "Cumulative Voter Turnout by Ward",
+    align = "cccc"
+  ) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+Not only does Ward 1 has far and away the highest overall voter turnout rate, it also has far and away the most voters and ballots cast in the city over the last decade. In recent history, this has been a prime area of the city to target in political campaigns, and local politicians gunning for at-large bids seem to have grown wise to this. From the I stories I have heard at campaign events, candidates for Lynn's at-large city councilor (as well as some School Committee candidates) have more or less been instructing their canvassing teams camp out in Ward 1 well before the preliminary was even on voters' radars, all because they know that part of the city turns out to the polls very reliably. 
+
+Wards 7, 2, and 3 have the next highest rates at about 21.7%, 21.3% and 20.2%, respectively, making them other enticing spots for campaigns to target, though voters there don't turn out at anywhere near the rates of Ward 1's voters. 
+
+Interestingly, the 4 wards with the highest cumulative voter turnout also have the largest raw numbers of registered voters. This is great news for candidates whose positions are chosen at-large: they can focus on campaigning in the wards where voter turnout has historically been the highest and not only be rewarded wiath higher turnout turnout percentages at the polls, but also with larger volumes of voters.
+
+Finally, Wards 5, 6, and 4 turn out at the very lowest rates: 17.3%, 16.4%, and 15.7%, respectively. Ward 4 in particular, as I have learned from Mr. Smith and other candidates in the 2025 election cycle, has a reputation among local campaign strategists for being very difficult with regards to convincing residents to get out and vote. 
+
+I would like to take a moment to clarify that I am not blaming voters in wards with low turnout for not showing up to their local polling places. While it is true that a subset of voters may be knowingly and willingly choosing to skip casting a ballot, numerous hurdles exist that may be preventing residents of areas like Ward 4 from showing up to vote. Some voters, for example, may not be properly informed of upcoming elections due to language barriers or lack of access to the internet, TV, cellphones, or newspapers, or may not be able to go to their polling places on Election Day due to lack of transportation or work and childcare obligations. The exact causes of low voter turnout rates in Lynn are a very real issue but are beyond the scope of this analysis. This is all to say that, when I discuss areas of the city with low turnout, I am not doing so to scold the residents of those areas, but rather to highlight areas of the city where expending large amounts of campaign resources may not be very advisable.
+
+By and large, the perceptions that local politicians have of the voter turnout of each ward of the city seem to be corroborated by the cumulative turnout numbers of each ward over the last 17 elections. That said, deeper analysis is needed. As a general strategy, it seems that Ward 1 is the golden goose, and Wards 2, 3, and 7 are also interesting options for increased campaign efforts. That said, from a vote-maximizing perspective, it could very well be the case that campaigning in some pockets of these wards are preferable to doing so in others. To truly get a sense of where voter turnout is the highest, we must look at which precincts have high turnout.
+
+## By precinct
+
+Figure 2 displays the cumulative voter turnout of all 30 of Lynn's precincts, arranged from greatest turnout to least. I calculate cumulative turnout at the precinct level as such:
+
+$$
+turnout_{i} = \frac{\sum_{i = 1}^{17} ballots_{i}}{\sum_{i = 1}^{17} voters_{i}}
+$$
+
+where $\sum_{i = 1}^{17} ballots_{i}$ (cumulative ballots cast) is the sum of the ballots cast in a given precinct in each of the 17 sampled elections and $\sum_{i = 1}^{17} voters_{i}$ (cumulative registered voters) is the sum of the number of registered voters in that precinct in each of the 17 sampled elections.
+
+```{r df_4, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.width = 5, fig.height = 7}
+
+ggplot(df_4, aes(x = `Precinct`, y = `Cum. Percent Turnout`)) +
+  geom_bar(stat = "identity", color = "black", fill = "coral", alpha = 0.75) +
+  coord_flip() +
+  labs(title = "Figure 2: Voter Turnout by Precinct", 
+       subtitle = "All sampled elections",
+       caption = str_wrap("Plot created from data in Table 4 in 'Lynn Election Data' Excel file."),
+       x = "Precinct", 
+       y = "Cumulative Voter Turnout") +
+  scale_y_continuous(
+    breaks = seq(0, 0.4, 0.1),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.4),
+    expand = c(0, 0)) +
+  theme_minimal(base_size = 10, base_family = "Helvetica") +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10, color = "black"),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_line(color = "gray", size = 0.25),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.x = element_line(color = "gray", size = 0.25),
+    panel.grid.minor.y = element_blank()
+  )
+```
+
+Many of the observations made about voter turnout at the ward level hold true when viewed at the precinct level. 5 of the top 6 precincts by cumulative turnout are in Ward 1, so the entire ward is made up of pockets of extremely dependable voters. 4 of the bottom 10 precincts are located in Ward 4, and four others are either in Wards 5 or 6. Most precincts in these three wards turn out at very low rates, and most of those that do slightly better are only middle-of-the-pack, with the only real exceptions being W5P1. This chart more or less backs up the idea Ward 1 is an ideal place to campaign because of the reward of high turnout and Wards 4, 5, and 6 are not for the opposite reason.
+
+Wards 2, 3, and 7 are mixed bags. For example, W2P1 turns out at the third-highest rate overall, but W2P3 and W2P4 turn out at rates that place them in the bottom ten. Similarly, W7P1 and W7P2 would be excellent for campaigning on account of their top-10 turnout rates, but W7P3 and W7P4's relatively lower rates make the remainder of the ward less appealing. Across the board, Ward 3 turns out at fairly moderate rates, though W3P1 and W3P3 are the precincts there with the highest turnout.
+
+Since we have observed that voter turnout can vary depending on election level, I would like to see if any of these rankings drastically change when limiting the scope to just local elections. Figure 3 displays cumulative voter turnout for all 30 precincts in only local elections (including both preliminaries and general elections).
+
+```{r df_5, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.width = 5, fig.height = 7}
+
+ggplot(df_5, aes(x = `Precinct`, y = `Cum. Percent Turnout`)) +
+  geom_bar(stat = "identity", color = "black", fill = "limegreen", alpha = 0.75) +
+  coord_flip() +
+  labs(title = "Figure 3: Voter Turnout by Precinct in Local Elections", 
+       subtitle = "All sampled local elections",
+       caption = str_wrap("Plot created from data in Table 5 in 'Lynn Election Data' Excel file."),
+       x = "Precinct", 
+       y = "Cumulative Voter Turnout") +
+  scale_y_continuous(
+    breaks = seq(0, 0.35, 0.05),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.35),
+    expand = c(0, 0)) +
+  theme_minimal(base_size = 10, base_family = "Helvetica") +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10, color = "black"),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_line(color = "gray", size = 0.25),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.minor.y = element_blank()
+  )
+```
+
+Even when viewing turnout numbers in only local elections, not very much changes. With the exception of a couple precinct that shift two or three spots, all precincts that turn out at high rates in all elections do likewise in local elections.
+
+How do we apply what we've learned so far to inform potential campaigning strategy? For starters, as previously mentioned, all of Ward 1 is a relatively easy location to campaign because not only do voters generally not need to be reminded to go out and vote, there is no need to be selective as to where to send canvassers or volunteers to hang leaflets on doors. Every precinct there will likely respond similarly to campaign activities, so no highly specialized planning is necessary. This is not the case for Wards 2, 3, and 7. It would be worthwhile to take the Ward 1 approach with the high-turnout precincts in those wards, but it would not serve Mr. Smith's campaign well to spend valuable resources taking that same approach with these wards' low-turnout precincts. For the most part, Wards 4, 5, and 6, should not be a huge priority if maximizing total votes citywide is the ultimate goal.
+
+I believe we have learned about as much as we can about voter turnout patterns across the city's recent history as we possibly can given the limited data, but there is one more thing I would like to look at that I don't think any campaign teams this election cycle are weighing very heavily, if at all. In the next subsection, I will add a time dimension to the analysis of voter turnout across Lynn's precincts. 
+
+## Have voter turnout patterns changed over time?
+
+As we have previously seen, precincts like W1P1, W1P2, and W2P1, seem to exhibit high rates of cumulative voter turnout, and precincts like W4P1, W4P2, and W5P3 seem to exhibit the opposite. However, I would like to know if the voter turnout patterns in precincts like these have always been this way. Are there precincts where voter turnout is trending upward (and could therefore be a viable place to expect increased turnout in the 2025 General Election)? Could there perhaps be precincts that have high cumulative turnout but have been trending downward, or precincts that have low cumulative turnout but are on the rise?
+
+As we have established, voter turnout almost always varies depending on the level and phase of the election. So, it follows that the citywide voter turnout rate might be much lower for some elections (mainly local preliminaries) while it might be higher for others (like the federal and state general elections). If we want to see if voter turnout is truly increasing in a certain precinct, we must adjust for this, which I do by calculating *normalized voter turnout (NVT)*:
+
+$$
+NVT_{i, j} = \frac{turnout_{i, j}}{turnout_{city, j}}
+$$
+
+where $turnout_{i, j}$ is the voter turnout of precinct $i$ in election $j$ and $turnout_{city, j}$ is the city-wide voter turnout in election $j$. NVT is calculated as the ratio of precinct $i$'s turnout in election $j$ to the city-wide voter turnout in that same election. What NVT is essentially doing is normalizing all voter turnout rates so that 1 is always the city-wide average for a given election, regardless of what the raw city-wide turnout rate actually was. Values less than 1 can be interpreted as below-average turnout for that election, and values greater than 1 can be interpreted as above-average.
+
+Take the 2020 Federal Election as an example, which saw a relatively high citywide voter turnout rate of about 64%. W7P1 had a 73% turnout rate in that election, well above the city average. Their NVT for the 2020 Federal Election would therefore be about 1.14. In the 2025 Lynn Preliminary, in which a mere 3% of registered voters city-wide cast a ballot, just 3.8% of W7P1 voters actually voted. However, relative to the rest of the city, their turnout was still comfortably above average with an NVT of 1.26. In the case of W7P1, the raw voter turnout decreased significantly from 2020 to 2025, but the entire city's turnout rate decreased in a similar manner, meaning that W7P1's turnout rate didn't really decrease compared to the rest of the city.
+
+All this is to give a slightly more precise way of measuring how a precinct's voter turnout rate is changing relative to the rest of Lynn. In Figure 4, I plot each precinct's NVT over all 17 sampled elections in chronological order (see Table 2, the sampled elections are listed there from least to most recent). This makes the first point on each trend line the NVT of each precinct in the 2015 Lynn General Election and the last point the NVT of each precinct in the 2025 Lynn Preliminary. The red line in each cell represents the city voter turnout rate for each election normalized to 1.
+
+```{r df_16, echo = FALSE, message = FALSE, warning = FALSE, fig.dim = c(6, 6), fig.align = "center"}
+ggplot(df_16, aes(x = `Name`, y = `NVT`, group = 1)) +
+  geom_line(color = "blue") +
+  geom_hline(yintercept = 1, color = "red", alpha = 0.5) +
+  labs(title = " Figure 4: Normalized Voter Turnout by Precinct Over Time",
+       subtitle = "All sampled elections",
+       caption = str_wrap("Plot created from filtering and merging data in Table 1 and Table 6 in 'Lynn Election Data' Excel file. Elections are listed on the horizontal axis in chronological order."),
+       x = NULL, 
+       y = "Normalized Voter Turnout") +
+  facet_wrap(~`Precinct`, scales = "fixed") +
+  coord_cartesian(ylim = c(0, 4)) +
+  theme_minimal(base_size = 10, base_family = "Helvetica") +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(color = "gray", size = 0.25)
+  )
+```
+
+As we might expect, most of Ward 1 consistently turns out at a rate well above the citywide average. I must say that viewing this chart makes it really clear just how much heavy lifting the Ward 1 precincts must be doing to bolster Lynn's overall turnout rate across elections, as many precincts in the vast majority of elections (especially non-federal ones) consistently turn out at below-average rates, particularly W4P1, W4P2, W5P2, and WP53 (none of which ever turned out at even a Lynn-average rate for any of the sampled elections).
+
+The point of this exercise was to pick out any precincts where voter turnout might be rising relative to the rest of the city. Unfortunately, aside from possibly W1P4 or W5P1, no precinct seems to show any discernible upward trend. In fact, virtually none of them show any discernible trend at all. The adjusted voter turnout rate for most precincts seems to be either relatively constant over time or is too volatile to notice any kind of meaningful trend.
+
+A glass-half-full type of campaign strategist might actually see the volatility displayed by many precincts in a more positive light. Perhaps it's a good thing that NVT can spike out of nowhere - who's to say that a low-turnout precinct like W2P3 or W4P2 won't suddenly shoot up in the 2025 General Election? Look at all four precincts in Ward 6. For each one, NVT rockets up to about twice the city average right around where the 2020 Presidential Election occurs on the timeline. I cannot think of anything, given the available data, that would explain this phenomenon, but maybe that's not the point. Voter turnout in any given precinct could turn on a dime, and while history might tell us who is generally expected to turn out at high and low rates, precincts with low turnout are always capable of putting together an uncharacteristically strong performance at the polls.
+
+# Where are the most optimal locations to target?
+
+## Criteria
+
+So far, we've determined which precincts have the highest rates of voter turnout. To provide a more definitive answer to the question of where Mr. Smith's time and resources would be best spent campaigning, given the data at my disposal, I consider two criteria: each precinct's *voter turnout* in the 2025 Preliminary as well as the *vote share* Mr. Smith received from each precinct. 
+
+In the next two subsections, I test if voter turnout and vote share in preliminary elections are actually indicative of those metrics in the subsequent general elections. If there are positive associations, I can say with more confidence that preliminary voter turnout and vote share are appropriate measures of a precinct's suitability for campaign efforts. 
+
+## Is turnout in the preliminaries indicative of turnout in the general election?
+
+We would probably expect that precincts that show up to their polling places at higher rates in preliminary elections tend to do likewise in the general election. To test this, in Figure 5, I plot turnout in the general election by precinct in 4 recent general elections (2017, 2019, 2021, and 2023) on their turnout in the preliminary. Elections from 2015 and 2025 are excluded because data for either the preliminary or general election phase are unavailable. 
+
+```{r df_13, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.width = 6, fig.height = 6}
+lm_fit_13 <- lm(`Turnout in General Election` ~ `Turnout in Preliminary`, data = df_13_clean)
+slope <- coef(lm_fit_13)[2]
+intercept <- coef(lm_fit_13)[1]
+slope_label <- paste0("y = ", 100*(round(intercept, 3)),
+                      " + ", round(slope, 2), "x")
+
+ggplot(df_13_clean, aes(x = `Turnout in Preliminary`, y = `Turnout in General Election`)) +
+  geom_point(shape = "square", color = "blue", size = 3) +
+  geom_smooth(method = lm, se = FALSE, color = "red") +
+  annotate("text", x = 0.21, y = 0.08, label = slope_label, color = "red", size = 5, hjust = 0, fontface = "bold.italic") +
+  annotate(
+    "rect",
+    xmin = 0.2, xmax = 0.32, 
+    ymin = 0.04, ymax = 0.12,
+    fill = "lightblue",
+    alpha = 0.25,         
+    color = "blue",      
+    linewidth = 1               
+  ) +
+  labs(title = "Figure 5: Voter Turnout in Preliminary vs. General Election",
+       subtitle = "All precincts & sampled local elections", 
+       caption = str_wrap("Plot created from data in Table 13 in 'Lynn Election Data' Excel file. 2015 General Election and 2025 Preliminary not included, as data for 2015 Preliminary and 2025 General Election are unavailable. Special elections not included, as they have no general or preliminary phase."),
+       x = "Turnout in Preliminary", 
+       y = "Turnout in General Election") +
+  scale_x_continuous(
+    breaks = seq(0, 0.35, 0.05),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.35)) +
+  scale_y_continuous(
+    breaks = seq(0, 0.6, 0.1),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.6)) +
+  theme_minimal(base_size = 10, base_family = "Helvetica") +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10, color = "black"),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_line(color = "gray", size = 0.25),
+    panel.grid.major.y = element_line(color = "gray", size = 0.25),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.minor.y = element_blank()
+  )
+```
+
+A simple linear model predicts a 1.21 percentage-point increase in a precinct's turnout at the general election for every additional percentage point of turnout at the preliminary. This corroborates what we discovered earlier (that participation in city general elections, across all years, is generally much higher than participation in preliminary elections). This is also bodes well for candidate like Mr. Smith, who, while he performed well in the preliminary, stands to improve his candidacy substantially by the general election.
+
+## Is support in the preliminaries indicative of support in the general election?
+
+Similar to voter turnout rates, we should anticipate a positive association between vote share, or "support", in the preliminary election as a school committee candidate and support in the general election. After all, it makes sense to think that, if the voters of a certain precinct heavily favor a candidate in the preliminary, they will do the same in the general election.
+
+To test this, in Figure 6, I plot the vote share of all Lynn school committee candidates in all precincts in the same 4 most general elections on their vote share in the preliminary.
+
+```{r df_12, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center", fig.width = 6, fig.height = 6}
+lm_fit_12 <- lm(`Percent of Votes in General Election` ~ `Percent of Votes in Preliminary`, data = df_12_clean)
+slope <- coef(lm_fit_12)[2]
+intercept <- coef(lm_fit_12)[1]
+slope_label <- paste0("y = ", 100*(round(intercept, 3)),
+                      " + ", round(slope, 2), "x")
+
+ggplot(df_12_clean, aes(x = `Percent of Votes in Preliminary`, y = `Percent of Votes in General Election`)) +
+  geom_point(shape = "square", color = "blue", size = 3) +
+  geom_smooth(method = lm, se = FALSE, color = "red") +
+  annotate("text", x = 0.03, y = 0.22, label = slope_label, color = "red", size = 5, hjust = 0, fontface = "bold.italic") +
+  annotate(
+    "rect",
+    xmin = 0.02, xmax = 0.11, 
+    ymin = 0.205, ymax = 0.235,
+    fill = "lightblue",
+    alpha = 0.25,         
+    color = "blue",      
+    linewidth = 1               
+  ) +
+  labs(title = "Figure 6: Percent of Votes in Preliminary vs. General Election", 
+       subtitle = "All candidates, precincts, & local elections",
+       caption = str_wrap("Plot created from data in Table 12 in 'Lynn Election Data' Excel file. 2015 General Election and 2025 Preliminary not included, as data for 2015 Preliminary and 2025 General Election are unavailable. Special elections not included, as they have no general or preliminary phase."),
+       x = "Percent of Votes in Preliminary", 
+       y = "Percent of Votes in General Election") +
+  scale_x_continuous(
+    breaks = seq(0, 0.25, 0.05),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.25)) +
+  scale_y_continuous(
+    breaks = seq(0, 0.25, 0.05),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.25)) +
+  theme_minimal(base_size = 10, base_family = "Helvetica") +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10, color = "black"),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_line(color = "gray", size = 0.25),
+    panel.grid.major.y = element_line(color = "gray", size = 0.25),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.minor.y = element_blank()
+  )
+```
+
+Indeed, recent election data shows this to mostly hold true. Another linear model in this case predicts a 0.77 percentage-point increase in vote share at the general election for every additional percentage point of vote share at the preliminary. 
+
+However, this is not exactly the 1-1 relationship I was expecting, which is concerning, but it is important to remember that this relationship cannot be determined to be causal with the limited data available and with the simple estimation technique being used. I believe the most important takeaway here is the most encouraging one: that greater support in the general election usually entails from greater support in the preliminary election. Equally encouraging is the precedent of candidates that have markedly increased their support between the preliminary and general elections (represented by the points farthest above the line), so poor performance in the preliminary in a certain precinct is not necessarily a death sentence.
+
+## Potential precincts to target
+
+This brings me to my main recommendation: if my assumptions about voter turnout and support in the preliminaries versus the general election seem to hold, Mr. Smith should focus on campaigning mainly in precincts where one, but not both, of the two measures is lower than the city average.
+
+Consider Figure 7. Vote share in the 2025 Preliminary is on the horizontal axis, and voter turnout in the 2025 Preliminary is on the vertical axis, and all 30 precincts are shown on the grid. A vertical line has been placed at $x =$ 0.118, reflecting the fact that Mr. Smith was received on 11.8% of votes for School Committee candidates citywide. Precincts that lie to the left of this line represent precincts that voted for Mr. Smith at a rate less than the city average, and those that lie to the right represent precincts that voted for Mr. Smith at an above-average rate. A horizontal line has been placed at $y =$ 0.03 to reflect the fact that 3% of all of Lynn’s registered voters cast a ballot in the 2025 Lynn Preliminary. Precincts that lie above this line represent precincts that turned out at a rate greater than the city-wide average, and those that lie below it represent precincts that turned out at a below-average rate. These lines essentially separate the grid into four quadrants.
+
+```{r df_15, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center"}
+n <- 200
+x <- seq(0, 1, length.out = n)
+y <- seq(0, 4, length.out = n)
+
+grad_matrix <- outer(x, y, FUN = function(x, y) {
+  t <- (x + y/4)/2
+  rgb(red = 1 - t, green = t, blue = 0, alpha = 0.5)
+})
+
+grad_matrix <- grad_matrix[nrow(grad_matrix):1, ]
+
+grad_raster <- as.raster(grad_matrix)
+
+ggplot(df_15, aes(x = `Percent of Votes in Preliminary`, y = `Percent Turnout`, label = `Precinct`)) +
+  annotation_raster(
+    grad_raster,
+    xmin = 0, xmax = 0.25,
+    ymin = 0, ymax = 0.12
+  ) +
+  geom_text(color = "black", size = 4) +
+  geom_vline(xintercept = 0.118, color = "black", size = 0.5) +
+  geom_hline(yintercept = 0.03, color = "black", size = 0.5) +
+  labs(
+    title = "Figure 7: Most Optimal Precincts to Target",
+    caption = str_wrap("Plot created from filtering and merging data in Table 2 & Table 12 in 'Lynn Election Data' Excel file."),
+    x = "Vote share in 2025 Preliminary",
+    y = "Voter turnout in 2025 Preliminary"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0.05, 0.2, 0.05),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0.05, 0.2),
+    expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks = seq(0, 0.1, 0.02),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.1),
+    expand = c(0, 0)) +
+  theme_minimal(base_size = 14) +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10, color = "black"),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_line(color = "gray", size = 0.5),
+    panel.grid.major.y = element_line(color = "gray", size = 0.5)
+  )
+
+```
+
+The quadrants of Figure 7 can be interpreted as follows:
+
+**I) Upper right:** Precincts with above-average "support" (vote share) and above-average turnout in the preliminary
+
+**II) Upper left:** Precincts with below-average "support" (vote share) and above-average turnout in the preliminary
+
+**III) Lower left:** Precincts with below-average "support" (vote share) and below-average turnout in the preliminary
+
+**IV) Lower right:** Precincts with above-average "support" (vote share) and below-average turnout in the preliminary
+
+I believe Mr. Smith should not be as concerned with focusing campaigning efforts in precincts that fall into Quadrant I (high-support, high-turnout). Precincts in Quadrant I, such as W1P1 and W1P4, having demonstrated great support for Mr. Smith and having turned out to the preliminary at an above-average rate, should be expected to do likewise in the general election. Voters in these precincts, for the most part, probably don't need to be reminded to get out and vote on Election Day. Given the high rate of support, it is likely that voters there are also already very familiar with Mr. Smith and his platform. Therefore, while campaigning in these precincts might prove to be very successful, the marginal benefit of focusing efforts there would probably be lower relative to focusing on precincts in other quadrants.
+
+For similar reasons, it would be wise not to focus as much on campaigning in precincts that fall into Quadrant III (low-support, low-turnout). These precincts, such as W6P2, W6P3, and W7P4, demonstrated relatively little support for Mr. Smith and turned out to the preliminary at an below-average rate (and therefore would be expected to do likewise in the general election). From a perspective of maximizing votes and overall voter turnout, precincts in this quadrant, particularly those closest to the bottom left corner, are probably among the least worthwhile to target.
+
+Precincts in the other two quadrants are probably those where Mr. Smith stands to gain the most from focusing campaigning efforts. For precincts in Quadrants II and IV, Mr. Smith would only have to focus on improving one of two things: improving support for his candidacy among reliable voters or improving turnout among voters who are aware of his candidacy.
+
+Quadrant IV's precincts, such as W3P1 and W4P1, showed great support for Mr. Smith in the preliminary but did not turn out at very high rates. This tells me that perhaps these are precincts that are aware of Mr. Smith and his platform but either need to be reminded to come out on Election Day or need some kind of assistance navigating the process of doing so. The campaigning strategy in these precincts prior to Election Day could be as simple as having campaign volunteers go around the neighborhoods and leave leaflets on doors or in mailboxes. If voters there already know a fair amount about Mr. Smith's candidacy, they may not need a knowledgeable member of the campaign team to interact with them as much as they need a reminder to get out and actually vote for Mr. Smith. If Mr. Smith deems it worthwhile to secure higher voter turnout in these precincts, he should be prepared to provide accommodations like transportation to polling places on Election Day.
+
+In Quadrant II, we see precincts like W5P1 and W7P1, which turned out at above-average rates but offered below-average support to Mr. Smith. To me, this could mean that those precincts either are unfamiliar with Mr. Smith's candidacy or already have allegiances to other school committee candidates. In these precincts, should Mr. Smith choose to campaign there, I would recommend sending campaign staff or Mr. Smith himself into canvass these areas. These precincts clearly have substantial numbers of willing and engaged voters, but these voters may need to speak with individuals who are able to thoroughly explain Mr. Smith's platform and may actually benefit from meeting Mr. Smith in person.
+
+# Additional: Does order of candidates on the ballot matter?
+
+During a campaign staff meeting in mid-September, Mr. Smith announced that his name was chosen to be listed first among all School Committee candidates in the general election. Given that his name was listed eighth on the ballot in the preliminary, his excitement about holding the most desirable position on the ballot was certainly understandable. This begs the question, though, about how much of a difference his higher ballot position would actually make. In Lynn elections, is where a School Committee candidate's name listed on the ballot correlated with their performance in that election? Is being listed first really that much preferable to being listed eighth?
+
+For candidates running at the federal and state levels, the state of Massachusetts orders the names of candidates on the ballot via a random drawing. While many municipalities choose to list the candidates for local offices on their ballots in alphabetical order or by incumbency, the city of Lynn utilizes the same lottery system as the state to determine the order of its School Committee candidates on the ballot.
+
+This presents an opportunity to explore the *ballot order effect*, a behavioral bias commonly observed with voting behavior in nonpartisan, low-information elections, such as local elections in small-to-mid-size cities like Lynn. This bias refers to the fact that candidates listed earlier on a ballot tend to receive slightly more votes than those listed in lower positions. 
+
+Fortunately, in all of the city's election results data sheets, candidates are listed in the order in which they appeared on the ballot, so we can observe if there is some kind of association between a candidate's position on the ballot and how they performed in the election. Between the 10 sampled local elections (which includes both preliminaries and general elections) from 2015 to the present day, we observe a cumulative total of 98 school committee candidacies (results from preliminaries and general elections in the same election cycle are counted as separate candidacies). Figure 8 shows the distribution of the vote shares of those candidacies at different places on the ballot. 
+
+```{r df_14, echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center"}
+ggplot(df_14_clean, aes(x = `Place on Ballot`, y = `Percent of Votes`)) + 
+  geom_boxplot(fill = "purple", 
+               color = "black", 
+               alpha = 0.7, 
+               size = 0.5,
+               median.linewidth = 0.5,
+               outlier.shape = "circle", 
+               outlier.fill = "purple",
+               outlier.color = "black", 
+               outlier.alpha = 0.7,
+               outlier.size = 2) +
+  labs(title = "Figure 8: Ballot Position and Election Performance", 
+       subtitle = "All sampled local elections",
+       caption = str_wrap("Plot created from data in Table 14 in 'Lynn Election Data' Excel file. Includes both preliminary and general elections. Special elections excluded as no candidates are on the ballot."),
+       x = "Place on Ballot", 
+       y = "Vote Share") +
+  scale_x_discrete(
+    expand = c(0.05, 0.05)
+  ) + 
+  scale_y_continuous(
+    breaks = seq(0, 0.2, 0.04),
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0, 0.2),
+    expand = c(0, 0)) +
+  theme_minimal(base_size = 10, base_family = "Helvetica") +
+  theme(
+    text = element_text(family = "Helvetica"),
+    plot.title = element_text(size = 12, face = "bold", hjust = 0.5),
+    plot.title.position = "panel",
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.subtitle.position = "panel",
+    plot.caption = element_text(size = 8, face = "italic", hjust = 0),
+    plot.caption.position = "panel",
+    axis.title = element_text(size = 12),            
+    axis.text.x = element_text(hjust = 0.5, size = 10, color = "black"),
+    axis.text.y = element_text(size = 10, color = "black"), 
+    axis.line = element_blank(),
+    panel.border = element_rect(color = "black", size = 1),
+    panel.grid.major.x = element_line(color = "gray", size = 0.25),
+    panel.grid.major.y = element_line(color = "gray", size = 0.25),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.minor.y = element_blank()
+  )
+```
+
+In recent history, it seems that, for school committee candidates, being listed progressively higher on the ballot is associated with a higher vote share in that election. The median vote share of a candidate listed first is about 15%, and the median vote share of candidates in lower positions descends in an nearly linear fashion from there. With some exceptions, candidates can usually be expected to finish within 3 percentage points of the median vote share at their position. 
+
+So, there may actually be an advantage in occupying the first position on the ballot, as Mr. Smith will in the 2025 Lynn General Election. Because so many of the factors affecting voters' decision-making processes, such as their information level, are unobservable, it's unfortunately hard to say whether this pattern is solely attributable to the order of names on the ballot. However, I have three potential explanations for why we might observe the ballot order effect:
+
+1. Undecided and uninformed voters may gravitate towards candidates that are listed higher on the ballot because it requires more effort to read through the entire list of candidates and make a decision with a larger candidate pool. Even voters that have strong preferences for a handful of school committe candidates may not know how to allocate the remainder of their six selections, so they might default to the names higher on the list.
+2. Incumbent candidates have tended to inhabit much of the higher ballot positions. With six school committee seats up for grabs each election cycle and an average 10 candidates in each race, there is naturally a higher likelihood that at least a few incumbents are chosen for the top spots. Undecided and uninformed voters may gravitate towards names they recognize, like those incumbent candidates, as opposed to lesser-known challengers.
+3. Undecided and uninformed voters not knowing that order of candidates is randomly chosen may perceive candidates listed higher on the ballot as more preferable because their experience, past success, or some other desirable quality merited them higher spots. They may believe that incumbent, and therefore more experienced, candidates are listed first, or that the order is determined by performance in the preliminary election (in the case of general election ballots).
+
+While I can't test any of these hypotheses, I will mention that default bias (voters seeing candidates at the top of the ballot as "default" options) seemed to be the main reason that Mr. Smith and the rest of the campaign team were so glad to hear the news of the order of the ballot for the 2025 General Election. Speaking from my personal voting experience, I have been guilty of selecting candidates based on name recognition when I have no outside information to consider, and I'm sure many Lynn voters exhibit the same behavior.
+
+On a side note, when viewed from a perspective of ballot position, Mr. Smith's performance in the 2025 Preliminary becomes all the more impressive. Recall that Mr. Smith's name was placed 8th on the ballot in that election. Yet, he managed to secure a 11.8% vote share, making him a noticeable outlier over all other candidates who were placed in that position. For many positions on the ballot, the best-performing candidate finished about 3 percentage points better than the worst performing candidate, but Mr. Smith performed well over 3 percentage points better than the *next-best-performing candidate* with the 8th ballot position. His performance in the 2025 Preliminary is what one would expect from a candidate listed anywhere between 3rd and 5th, not all the way down in the nosebleeds.
+
+If we were to solely look at Figure 8, with the first position on the ballot, Mr. Smith should, on paper, be all but guaranteed to win a seat in the 2025 General Election. In fact, according to Figure 8, he should be expected to finish no lower than 3rd and has a very real chance to secure the highest vote share of all candidates (something he would be basically guaranteed to accomplish with a vote share of what seems to be greater than 15%).
+
+Of course, with so few data points, the box-and-whisker plots might not exactly represent the true distributions of vote shares that candidates would receive at each position on the ballot. That said, I believe they generally show the range in which a candidate should expect to perform based on position, and I believe that Mr. Smith has every right to feel even more confident now that his name is the first school committee candidate voters will see on their ballots on Election Day. 
+
+# Sources
+
+
