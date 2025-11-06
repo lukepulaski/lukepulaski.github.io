@@ -2,7 +2,7 @@
 
 Thank you for visiting my page! My name is Luke Pulaski, and I am a 2025 graduate of the University of Vermont with a Bachelor of Science in Economics. I am currently seeking an entry-level position in roles similar to a data analyst or research assistant. My primary industries of interest are health economics/health policy, labor economics, energy policy, antitrust, and environmental economics, though at this point in my career I am very open to branching out into a different field.
 
-This page serves both as a sample of projects I completed as a UVM student (highlighted by the Honors Thesis I finished as a senior) and as a repository for additional projects I have undertook outside the classroom. Please feel free to explore my work below.
+This page serves both as a sample of projects I completed as a UVM student (highlighted by the Honors Thesis I finished as a senior) and as a repository for additional projects I have undertaken outside the classroom. Please feel free to explore my work below.
 
 If you are interested in connecting, I would love to get in touch with you! I've linked my email, LinkedIn, and GitHub below.
 
