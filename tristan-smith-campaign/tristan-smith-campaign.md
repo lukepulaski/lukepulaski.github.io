@@ -23,16 +23,20 @@ Using historical election result data provided to me by Mr. Smith's team, as wel
 
 I conducted additional analytial work for Mr. Smith's campaign by dividing each of Lynn's 7 wards into "turfs" of 50 households with reliable voters in the DNC VoteBuilder platform (which was no fun at all to use). I was tasked with determining which turfs should be considered "broad" (reliable voters are evenly spread throughout the turf) or "precise" (reliable voters are concentrated in a turf). The turfs were ultimately sorted based on judgement calls, though I did attempt to account for the housing density of each of the turfs in each of my decisions by consulting a city zoning map. Much of this work was completed in Google Sheets so it could be easily shared with the rest of the campaign team.
 
+I have posted the finalized report, as well as all data file and extraction and cleaning programs in the Materials section below. Feel free to have a look!
+
 ## Update - November 5, 2025
 
 I am happy to announce that, on the evening of November 4, 2025, [Mr. Smith won a seat on Lynn School Committee](https://itemlive.com/2025/11/04/smith-tops-school-race/). Not only did he secure a seat, but he received the most votes of any candidate in the race. Overall, his campaign was a resounding success.
-
-I have posted the finalized report in the Materials section below. I will post all data files and extraction and cleaning programs tomorrow.
 
 In the coming days, the results of the 2025 Lynn General Election (broken down by precinct) should be open to the public. Once this data is available, I plan to analyze these results and assess the accuracy of the predictions I made in my report. I would also like to see how much he was able to improve turnout or how many additional votes he won in precincts where I recommended he focus his campaign. I hope to have this post-analysis up as soon as possible. I unfortunately can't give a set date because there is no set date for the release of the 2025 election results.
 
 ## Materials
 - [📄 Download Report PDF](voting_data_analysis.pdf)
+- [ℝ Download Rmd script](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/tristan-smith-campaign/R)
+- [🐍 Download Python code](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/tristan-smith-campaign/python)
+- [❎ Download Excel data tables](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/tristan-smith-campaign/XL)
+- [📁 Download Lynn election data PDFs](https://download-directory.github.io/?url=https://github.com/lukepulaski/lukepulaski.github.io/tree/main/tristan-smith-campaign/datasheets)
 
 
 
