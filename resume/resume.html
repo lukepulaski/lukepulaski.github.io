@@ -110,14 +110,14 @@
     
     .institution {
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       color: #213F84;
       font-weight: bold;
     }
 
     .title {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
       color: #696969;
       margin-left: 2rem;
     }
@@ -148,6 +148,41 @@
     
     .description ul {
       margin-left: 1rem;
+    }
+
+    .skills-container {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .skill-category {
+      margin-bottom: 2rem;
+    }
+    
+    .skill-category h3 {
+      font-size: 1.2rem;
+      color: #213F84;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #213F84;
+      color: #F1EAD2;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 4px rgba(33, 63, 132, 0.15);
+      transition: all 0.3s ease;
     }
     
   </style>
@@ -200,8 +235,10 @@
       </p>
       <p class="date"> September 2025 - November 2025 </p>
       <ul style="list-style-type: circle;" class="description">
-        <li> Detail </li>
-        <li> Detail</li>
+        <li> Provided strategic recommendations to Mr. Smith and his campaign team, contributing to a successful first-place finish </li>
+        <li> Developed Python programs to extract and analyze historical voter turnout and geographical data from public city archives </li>
+        <li> Cleaned and organized extensive election results data in Excel, ensuring accuracy for analysis </li>
+        <li> Created a detailed R Markdown report identifying precincts for improved turnout and support, leading to increased voter engagement in two wards </li>
       </ul>
     </div>
 
@@ -213,8 +250,9 @@
       </p>
       <p class="date"> January 2025 - September 2025 </p>
       <ul style="list-style-type: circle;" class="description">
-        <li> Detail </li>
-        <li> Detail</li>
+        <li> Collaborated with the UVM Department of Geography and Geosciences for an interdisciplinary study on the political and economic implications of the addition of a new racial category, Middle Eastern/North African (MENA), to the next U.S. Census </li>
+        <li> Gathered, cleaned, and analyzed datasets from the U.S. Census Bureau American Community Survey, Centers for Disease Control, and Opportunity Insights </li>
+        <li> Wrote Stata code to create helpful charts to portray the relationship between MENA populations in Michigan and variables such as housing, heath outcomes, and public assistance reliance </li>
       </ul>
     </div>
 
@@ -226,8 +264,7 @@
       </p>
       <p class="date"> September 2023 - May 2025 </p>
       <ul style="list-style-type: circle;" class="description">
-        <li> Detail </li>
-        <li> Detail</li>
+        <li> Conducted hundreds of in-person and online tutoring sessions to improve students' grasp of introductory microeconomic/macroeconomic theory, algebra, statistics, and three different levels of calculus </li>
       </ul>
     </div>
 
@@ -239,8 +276,9 @@
       </p>
       <p class="date"> June 2024 - August 2024 </p>
       <ul style="list-style-type: circle;" class="description">
-        <li> Detail </li>
-        <li> Detail</li>
+        <li> Conducted on-site and in-office meetings with farmers who suffered flood damage throughout Chittenden and Washington Counties </li>
+        <li> Processed land use data and reports of lost commodities to help farmers enrolled in crop and livestock insurance programs receive compensation from the federal Department of Agriculture </li>
+        <li> Utilized ARC-GIS and data from Vermont Parcel Viewer to assign individuals to tracts without listed owners in state land database </li>
       </ul>
       <h4 class="title"> Farm Service Intern </h4>
       <p class="location"> 
@@ -263,8 +301,9 @@
       </p>
       <p class="date"> October 2022 - May 2025 </p>
       <ul style="list-style-type: circle;" class="description">
-        <li> Detail </li>
-        <li> Detail</li>
+        <li> Contacted and assisted over 100 agricultural producers across the state of Vermont in enrolling in disaster protection programs </li>
+        <li> Completed a total of more than 500 land use reports for producers in 4 different Vermont counties </li>
+        <li> Performed administrative tasks around the FSA State Office to ensure smooth implementation of federal farm assistance initiatives </li>
       </ul>
     </div>
 
@@ -281,8 +320,42 @@
       </ul>
     </div>
     
-    <h2 class="section-header"> Core Skills </h2>
-    <p class="description">Add your skills here...</p>
+    <h2 class="section-header"> Skills </h2>
+    
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3>Technical Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="fa-brands fa-r-project"></i> R (Intermediate) </span>
+          <span class="skill-tag"><i class="fa fa-th"></i> STATA (Proficient) </span>
+          <span class="skill-tag"><i class="fa-brands fa-python"></i> Python (Intermediate) </span>
+          <span class="skill-tag"><i class="fa-brands fa-microsoft"></i> Microsoft Office (Proficient) </span>
+          <span class="skill-tag"><i class="fa-brands fa-java"></i> Java (Intermediate) </span>
+          <span class="skill-tag"><i class="fa-solid fa-database"></i> SQL (Beginner)</span>
+          <span class="skill-tag"><i class="fa-solid fa-code"></i> HTML/CSS (Beginner) </span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3>Analytical Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"> Statistics </span>
+          <span class="skill-tag"> Econometrics </span>
+          <span class="skill-tag"> Data Analysis </span>
+          <span class="skill-tag"> Data Visualization </span>
+          <span class="skill-tag"> Economic Modeling </span>
+          <span class="skill-tag"> Causal Inference </span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><i class="fa fa-globe"></i> English (Native)</span>
+          <span class="skill-tag"><i class="fa fa-globe"></i> Spanish (Conversational)</span>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html>
