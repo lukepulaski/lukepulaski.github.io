@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Luke Pulaski's Portfolio </title>
+  <title>Luke's Page</title>
   <link rel="icon" type="image/svg+xml" href="lp_logo.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html,
     body {
       overflow-x: hidden;
     }
-
     body {
       font-family: "Georgia";
       line-height: 1.5; 
@@ -92,10 +88,62 @@
       border-bottom: 2px solid #213F84;
       padding-bottom: 0.5rem;
     }
-
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .project-card {
+      background: #F1EAD2;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(33, 63, 132, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(33, 63, 132, 0.2);
+    }
+    
+    .project-title {
+      font-size: 1.5rem;
+      color: #213F84;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    
+    .project-description {
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-link {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #213F84;
+      color: #F1EAD2;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+    
+    .project-link:hover {
+      background-color: #1a3268;
+    }
   </style>
 </head>
-
 <body>
   <header>
     <div class="header-content">
@@ -116,9 +164,60 @@
   
   <main>
     <h2 class="section-header"> About Me </h2>
-
+    
     <h2 class="section-header"> Projects </h2>
 
-    
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 class="project-title"> Analysis of Lynn School Committee Election Results </h3>
+        <p class="project-date"> In progress </p>
+        <p class="project-description">
+          A fully responsive online store with shopping cart functionality, payment integration, and user authentication. Built with modern web technologies for optimal performance.
+        </p>
+        <a href="project1.html" class="project-link"> View Materials </a>
+      </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 class="project-title"> Lynn Voting Data Analysis </h3>
+        <p class="project-date"> Completed October 2025 </p>
+        <p class="project-description">
+          A fully responsive online store with shopping cart functionality, payment integration, and user authentication. Built with modern web technologies for optimal performance.
+        </p>
+        <a href="project1.html" class="project-link"> View Materials </a>
+      </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 class="project-title"> URA Work - MENA Research </h3>
+        <p class="project-date"> Completed May 2025 </p>
+        <p class="project-description">
+          A fully responsive online store with shopping cart functionality, payment integration, and user authentication. Built with modern web technologies for optimal performance.
+        </p>
+        <a href="project1.html" class="project-link"> View Materials </a>
+      </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 class="project-title"> Immigration, Rents, and House Prices in American Metropolitan Areas </h3>
+        <p class="project-date"> Completed April 2025 </p>
+        <p class="project-description">
+          A fully responsive online store with shopping cart functionality, payment integration, and user authentication. Built with modern web technologies for optimal performance.
+        </p>
+        <a href="project1.html" class="project-link"> View Materials </a>
+      </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 class="project-title"> Analysis of Lynn School Committee Election Results </h3>
+        <p class="project-date"> In progress </p>
+        <p class="project-description">
+          A fully responsive online store with shopping cart functionality, payment integration, and user authentication. Built with modern web technologies for optimal performance.
+        </p>
+        <a href="project1.html" class="project-link"> View Materials </a>
+      </div>
+      
+    </div>
   </main>
 </body>
+</html>
