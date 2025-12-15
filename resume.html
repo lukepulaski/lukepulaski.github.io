@@ -12,12 +12,10 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html,
     body {
       overflow-x: hidden;
     }
-
     body {
       font-family: "Georgia";
       line-height: 1.5; 
@@ -79,28 +77,61 @@
     .section-header {
       font-size: 2rem;
       margin-bottom: 1rem;
+      margin-top: 2rem;
       color: #213F84;
       border-bottom: 2px solid #213F84;
       padding-bottom: 0.5rem;
     }
-
+    
+    .resume-entry {
+      margin-bottom: 2rem;
+    }
+    
     .institution {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #242424;
-      padding-bottom: 0.5rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #213F84;
+      font-weight: bold;
     }
 
+    .title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #696969;
+      margin-left: 2rem;
+    }
+    
+    .location {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #808080;
+      margin-left: 2rem;
+      font-style: italic;
+    }
+    
+    .date {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #808080;
+      margin-left: 2rem;
+      font-style: italic;
+    }
+    
     .description {
       font-size: 1rem;
-      color: #494949;
+      color: #213F84;
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin-left: 4rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .description ul {
+      margin-left: 1rem;
     }
     
   </style>
 </head>
-
+  
 <body>
   <header>
     <div class="header-content">
@@ -114,16 +145,103 @@
   
   <main>
     <h2 class="section-header"> Education </h2>
-      <h3 class="institution"> University of Vermont </h3>
-        <p class="description">Add your education details here...</p>
     
-    <h2 class="section-header"> Experience </h2>
+    <div class="resume-entry">
+      <h3 class="institution"> University of Vermont (UVM) </h3>
+      <h4 class="title"> B.S. in Economics, Minor in Spanish </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Burlington, Vermont
+      </p>
+      <p class="date"> August 2021 - May 2025 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Patrick Leahy Honors College Scholar </li>
+        <li> Phi Beta Kappa </li>
+        <li> Department Honors, Department of Economics </li>
+        <li> Dean's List (x4) </li>
+        <li> Presidential Scholarship </li>
+      </ul>
+    </div>
+    
+    <h2 class="section-header"> Work Experience </h2>
+    
+    <div class="resume-entry">
       <h3 class="institution"> Tristan Smith for School Committee </h3>
-         <p class="description">Add your education details here...</p>
+      <h4 class="title"> Chief Data Analyst </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Lynn, Massachusetts
+      </p>
+      <p class="date"> September 2025 - November 2025 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Detail </li>
+        <li> Detail</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3 class="institution"> UVM Department of Economics </h3>
+      <h4 class="title"> Undergraduate Research Assistant </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Burlington, Vermont
+      </p>
+      <p class="date"> January 2025 - September 2025 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Detail </li>
+        <li> Detail</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3 class="institution"> UVM Center for Academic Success </h3>
+      <h4 class="title"> Peer Tutor </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Burlington, Vermont
+      </p>
+      <p class="date"> September 2023 - May 2025 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Detail </li>
+        <li> Detail</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3 class="institution"> United States Department of Agriculture, Farm Service Agency </h3>
+      <h4 class="title"> Program Analyst </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Williston, Vermont
+      </p>
+      <p class="date"> June 2024 - August 2024 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Detail </li>
+        <li> Detail</li>
+      </ul>
+      <h4 class="title"> Farm Service Intern </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Colchester, Vermont
+      </p>
+      <p class="date"> June 2023 - August 2023 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Detail </li>
+        <li> Detail</li>
+      </ul>
+    </div>
+
+    <h2 class="section-header"> Volunteer Experience </h2>
+
+    <div class="resume-entry">
+      <h3 class="institution"> The DREAM Program </h3>
+      <h4 class="title"> Mentor/Chapter Co-Chair </h4>
+      <p class="location"> 
+        <i class="fa-solid fa-map-marker-alt"></i> Winooski, Vermont
+      </p>
+      <p class="date"> October 2022 - May 2025 </p>
+      <ul style="list-style-type: circle;" class="description">
+        <li> Detail </li>
+        <li> Detail</li>
+      </ul>
+    </div>
     
     <h2 class="section-header"> Core Skills </h2>
-     <p class="description">Add your education details here...</p>
-
+    <p class="description">Add your skills here...</p>
   </main>
 </body>
 </html>
