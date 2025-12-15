@@ -63,6 +63,7 @@
       height: 50px;
       background: #F1EAD2;
       color: #213F84;
+      text-decoration: none;
       border-radius: 50%;
       font-size: 1.5rem;
       transition: all 0.3s ease;
@@ -86,6 +87,33 @@
       text-align: center;
       border-bottom: 2px solid #213F84;
       padding-bottom: 0.5rem;
+    }
+
+    .bio {
+      color: #494949; /* Color: Tundora */
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background: #213F84;
+      color: #F1EAD2;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      width: auto;
+      height: auto;
+    }
+    
+    .resume-btn:hover {
+      background: #FFFFFF;
+      transform: scale(1.1);
     }
     
     .projects-grid {
@@ -122,7 +150,7 @@
     }
     
     .project-description {
-      color: #333;
+      color: #494949;
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
@@ -158,15 +186,24 @@
         <a href="https://github.com/lukepulaski" target="_blank" class="social-btn">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="resume.html" target="_blank" class="social-btn">
-          Résumé
-        </a>
       </div>
     </div>
   </header>
   
   <main>
+    
     <h2 class="section-header"> About Me </h2>
+
+    <p class="bio">
+        Welcome to my page!
+      </p>
+    
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <a href="resume_link" target="_blank" class="resume-btn">
+        View my Résumé
+      </a>
+    </div>
+
     
     <h2 class="section-header"> Projects </h2>
 
