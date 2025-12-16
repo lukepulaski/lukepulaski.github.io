@@ -88,6 +88,33 @@
       padding: 2rem;
       gap: 2rem;
     }
+
+    .download-section {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #213F84;
+      color: #F1EAD2;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn:hover {
+      background: #7C9ADE;
+      transform: scale(1.05);
+    }
     
     .toc-sidebar {
       position: sticky;
@@ -290,6 +317,18 @@
     </aside>
 
     <main>
+
+      <div class="download-section">
+        <a href="honors-thesis.pdf" target="_blank" class="download-btn">
+          Download PDF
+        </a>
+        <a href="do-files" target="_blank" class="download-btn">
+          Download STATA do files
+        </a>
+        <a href="data-files" target="_blank" class="download-btn">
+          Download STATA data files
+        </a>
+      </div>
 
       <section id="abstract" class="section">
         <h2 class="section-header"> Abstract </h2>
