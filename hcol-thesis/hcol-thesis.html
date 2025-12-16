@@ -576,21 +576,66 @@ Mariel boatlift, which saw tens of thousands of Cuban defectors flock to the Mia
 
       <section id="robustness_checks" class="section">
         <h2 class="section-header"> Results </h2>
-        <h3 class="subsection-header"> Nonlinear Effects </h3>
+        <h3 class="subsection-header"> Addressing Measurement Error in the Immigration Variable </h3>
+        <div class="image-container">
+          <p class="image-caption"> Table 10: OHSS Sample of MSAs </p>
+          <img src="figures/table_10a.png" alt="OHSS Sample of MSAs" class="content-image">
+          <img src="figures/table_10b.png" alt="OHSS Sample of MSAs" class="content-image">
+        </div>
         <p class="content-text">
-          Present your analysis here. This is where you walk through your analytical process and findings.
+          One potential issue with my results could be the fact that immigrant inflows are improperly measured. Defining “immigrant inflow” as each MSA’s change in the foreign-born individuals that entered the U.S. after 2010 might not accurately reflect immigrants that arrived in the U.S. within the prior year. I present an alternative measurement of the immigration variable: the number of new legal permanent residents (LPRs) in an MSA in a given year. The Office of Homeland Security Statistics (OHSS) supplies data on the number of new LPRs annually in the 50 MSAs with the highest number of new LPRs in a given year. For the sample period of 2013-2022, 46 MSAs have LPR data for 9 or more years. The list of these 46 MSAs is displayed in Table 10. I then use this data to construct a new immigrant inflow variable, which represents the number of new LPRs added to an MSA in the prior year as a proportion of the total MSA population two years prior:
+        </p>
+        <img src="figures/eq_9.png" alt="Equation 9" class="inline-image">
+        <p class="content-text">
+          In Tables 10, 11(a), and 11(b), I will refer to this variable as “LPR_CHANGE”.
         </p>
         <p class="content-text">
-          Include charts, graphs, or tables as needed to support your analysis.
+          I expect that new LPR inflow relative to total population will have a lesser effect on both rental rates and housing prices when compared to the estimates using the old immigrant inflow measure. As a whole, LPR inflows into the U.S. are far less voluminous that those of all types of immigrants combined, as evidenced by the differences between cumulative immigrant inflow and cumulative LPR inflow in the first and third columns of Table 10. Additionally, LPRs often have lived in the U.S. for some time before they are granted permission to legally reside in the U.S., sometimes even for several years. So, if many of the new LPRs observed in these MSAs have resided in the U.S. for several years before attaining LPR status, they, too, may not be an accurate measure of immigrant inflow. This is because, after having lived in the U.S. for a certain period of time, immigrants often assimilate into the American economy and exhibit housing preferences closer to those of natives (Borjas, 2002).
         </p>
         <p class="content-text">
-          
+          To test if this alternative measure affects my estimate, I regress housing market outcomes on LPR inflow relative to total population with the same set of controls as seen in the models in Table 7. I additionally employ my U.S.-level instrument (which I recalculate to account for the reduced sample) and MSA and year fixed effects. The relevance test is shown in Model 2 of Table 11, which yields an F-statistic of 90.49, far exceeding the weak instrument threshold of 10 established by Stock & Yogo (2005). While the reduced form regressions in Table 12 do indicate that the U.S.-level instrument and both housing market outcomes are correlated, I also assume the instrument is valid for the same reasons as described in the “IV Specification” subsection of Section 5.
+        </p>
+        <div class="image-container">
+          <p class="image-caption"> Table 11: Robustness check—1st stage regressions </p>
+          <img src="figures/table_11.png" alt="Robustness check—1st stage regressions" class="content-image">
+        </div>
+        <div class="image-container">
+          <p class="image-caption"> Table 12: Robustness check—Reduced form regressions </p>
+          <img src="figures/table_12.png" alt="Robustness check—Reduced form regressions" class="content-image">
+        </div>
+        <p class="content-text">
+          It would be unfair to directly compare the results of this specification to my prior results from Table 7. After all, the estimates from this section have a substantially smaller sample size that is not at all like the sample of 381 MSAs I introduced in Section 3. As shown by the “Rank” column in Table 10, of the 46 MSAs in the reduced sample, 22 are in the top 10% of total-population-adjusted cumulative immigrant inflow (the top 10% of the original 381 MSAs) and all but 5 are in the top 25%. Therefore, most of the MSAs in the reduced sample are relatively high-immigration cities, meaning that the effect of immigration on house prices with this 46-MSA sample is sure to be different from the estimates with the full 381, which contains a mix of high- and low-immigration cities.
         </p>
         <p class="content-text">
-          
+          So, to obtain a more accurate comparison between the two measures of immigrant inflow, I also regress housing market outcomes on immigrant inflow relative to population (labeled as “IMMIGRATION” in Table 11 and Tables 13(a) and 13(b)) using the same sample of 46 MSAs. I recalculate the U.S.-level instrument accordingly and apply it to the immigration variable.
+        </p>
+        <div class="image-container">
+          <p class="image-caption"> Table 13(a): Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument </p>
+          <img src="figures/table_13a.png" alt="Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument" class="content-image">
+        </div>
+        <div class="image-container">
+          <p class="image-caption"> Table 13(b): Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument </p>
+          <img src="figures/table_13b.png" alt="Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument" class="content-image">
+        </div>
+        <p class="content-text">
+          In Table 13(a), Model 1 represents the OLS specification of the effect of immigrant inflows on rental rates, while Model 2 represents the IV specification of that same effect using the U.S.-level instrument. The OLS estimate more than quadruples once it is instrumented. This IV estimate tells us, for the 46-MSA sample, an increase in immigration equal to 1% of an MSA’s population is predicted to increase rental rates by almost 9%. Model 3 represents the OLS specification of the effect of new LPR inflow on rental rates, and Model 4 shows the IV specification of the same effect using the U.S.-level instrument. While the jump in the magnitude of the estimate is not quite as large, it is certainly also sizeable. The IV estimate in Model 4 predicts an increase in LPR inflow equal to 1% of an MSA’s population is predicted to increase rental rates by almost 7%. Despite the fact that the estimates using LPR inflows as a measure of immigration are slightly lower, both measures predict an economically significant reaction to foreign migration. Models 1-4 of Table 13(b) show the exact same progression, but with house prices as the dependent variable. Once again, the magnitude of the estimator experiences a substantial increase (from 3.6 to about 7) between the OLS and IV models (Models 1 and 2, respectively) that use my original immigrant inflow variable. The difference between the OLS and IV models (Models 3 and 4, respectively) that utilize the alternative measure of immigrant inflow is slightly smaller but still very noticeable, leading us to make a similar conclusion as with the previous subsection. Because the estimates do not differ significantly between the specifications with different measurements of foreign migration, this exercise, albeit with a limited sample, offers some evidence that measurement error was not a driving force behind any differences between my results and those of studies such as Saiz (2007).
+        </p>
+        <h3 class="subsection-header"> U.S.-Level Instrument vs. Origin-Country Shift-Share Instrument </h3>
+        <p class="content-text">
+          On top of allowing me to test an alternative measure of immigrant inflows, the usage of the OHSS dataset on new LPR inflows also presents an opportunity to test the efficacy of the version of the shift-share instrument more traditionally used in the literature. The OHSS dataset breaks down the yearly inflow of LPRs by country of origin, including the number of new LPRs from over 200 countries and territories of origin in each MSA.
         </p>
         <p class="content-text">
-          
+          I previously described the structure of the origin-country-based shift-share instrument in the “IV Specification” subsection of Section 5. For our purposes, however, we will be using LPR inflow in the base year (2013) to predict actual LPR inflow, so the origin-country instrument will be structured like so:
+        </p>
+        <img src="figures/eq_10.png" alt="Equation 10" class="inline-image">
+        <p class="content-text">
+          I test the relevance of the origin-country shift-share instrument in Model 3 of Table 11 and find that, though the first-stage regression, the instrument and immigrant inflows are extremely correlated. An F-statistic of 171 further reinforces this idea, so I have few doubts about the relevance of the origin-country instrument. As for the validity of this instrument, I find through Models 2 and 4 of Table 12 that the shift-share instrument is highly correlated with both rental rates and house prices. Following Saiz (2007), I also assume that immigration rates predicted by the instrument are only linked to housing market outcomes by way of actual immigration to the U.S due to the exogeneity of events in origin countries that might motivate individuals to immigrate.
+        </p>
+        <p class="content-text">
+          Model 5 of Table 13(a) presents the IV estimate of the effect of LPR inflow on rental rates, using the origin-country instrument. This model demonstrates that an increase in immigration equal to 1% of an MSA’s population is predicted to increase rental rates by a little less than 4%, an effect that is significantly lower than the effect predicted in the IV specification using the U.S.-level instrument in Model 4 (which as almost 7%). Model 5 of Table 13(b) presents the IV estimate of the effect of LPR inflow on house prices, again instrumenting with the origin-country instrument. The predicted effect of an increase in immigration equal to 1% of an MSA’s population on house prices is almost 10%, which, again, is lower than the near 13% increase predicted in Model 4. So, it seems that, by and large, the origin-country based instrument yields slightly lower estimates of the effect of LPR inflow than the U.S.-level instrument.
+        </p>
+        <p class="content-text">
+          Referring back to Model 2 of Table 11, the U.S.-level instrument I constructed did meet the criterion of yielding a first-stage F-statistic of more than 10, though the first-stage estimator did not clear that threshold by an extremely wide margin. On the other hand, the specification with the origin-country instrument yielded an F-statistic of 171, so it follows that the origin-country instrument is the far stronger, or more relevant, instrument of the two. This could help explain why the IV estimates using the origin-country instrument differ from those that utilize the U.S.-level instrument.
         </p>
       </section>
       
@@ -601,7 +646,7 @@ Mariel boatlift, which saw tens of thousands of Cuban defectors flock to the Mia
           Summarize your project and its implications here. Discuss the significance of your findings.
         </p>
         <p class="content-text">
-          You may also include suggestions for future research or next steps.
+          
         </p>
       </section>
       
