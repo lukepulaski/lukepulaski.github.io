@@ -156,6 +156,22 @@
       border-bottom: 2px solid #213F84;
       padding-bottom: 0.5rem;
     }
+
+    .subsection-header {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #213F84;
+      font-weight: bold;
+    }
+    
+    .subsubsection-header {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #213F84;
+      font-weight: bold;
+    }
     
     .content-text {
       color: #494949;
@@ -676,21 +692,103 @@ prices and describe the setup behind how I will implement them.
       </section>
       
       <section id="methodology" class="section">
-        <h2 class="section-header">Methodology</h2>
+        <h2 class="section-header"> Methodology </h2>
+        <h3 class="subsection-header"> OLS Specification </h3>
         <p class="content-text">
-          Following Saiz (2007) and much of the economic literature, I utilize Equation 1 to estimate
-the impact of immigration on rental rates and house prices using ordinary least squares (OLS):
+          Following Saiz (2007) and much of the economic literature, I utilize Equation 1 to estimate the impact of immigration on rental rates and house prices using ordinary least squares (OLS):
         </p>
-        <img src="images/eq_1.png" alt="Equation 1" class="inline-image">
+        <img src="figures/eq_1.png" alt="Equation 1" class="inline-image">
         <p class="content-text">
-          
+          The dependent variable is the change in the log of the real median rental rate/house price in MSA i
+in year t. Taking the natural logarithm of the outcome variable allows for simpler interpretation of
+the effect of immigration on rents and house prices; the coefficients on the main explanatory
+variable can be read as a percent change. First-differencing the outcome variable helps mitigate the
+effect of area-specific, time-invariant on immigrant inflow (Saiz, 2007; Sá, 2015; Unal, 2024). The
+main independent variable can be read as the lagged immigrant inflow as a proportion of double-
+lagged total population in MSA i. Adjusting immigration inflows for the total population stock helps
+account for the variation in immigrant inflows across MSAs of different population and housing
+market sizes (Sanchis-Guarner, 2023; Unal, 2024).
         </p>
         <p class="content-text">
-          
+          ∆𝑋𝑖,𝑡−1 stands for lagged changes in the log of real per capita income, while 𝑊 𝑖,𝑡−1 stands
+for lagged unemployment rate, education level of the workforce. These three factors are proxies for
+the economic performance of an MSA (Saiz, 2007); it is worthwhile to control for such covariates
+because immigrants may be attracted to areas where the economy is performing better. MSAs with
+higher rates of income growth, lower unemployment, and a more educated workforce tend to be
+viewed as more economically robust, so there is a very real possibility that immigrants are more
+inclined to move to areas such as these. Additionally, following Sanchis-Guarner (2023), I control
+for the viability of industries that historically employ many immigrant laborers. In my model, I
+include the lagged proportion of the workforce employed in the agricultural sector, construction
+sector, or manufacturing sector. The logic behind this decision is that, depending on their skill level,
+immigrants may be drawn to MSAs where many of the jobs are provided by industries that are most
+likely to offer them ample employment opportunities.
         </p>
         <p class="content-text">
-          
+          Lastly, 𝛾𝑖 represents MSA fixed effects (FE) and 𝜆𝑡 represents year FE. Implementing MSA
+FE will capture the effect of any time-invariant MSA characteristics that could be correlated with changes in rental rates, house prices, or immigrant inflows. In a similar manner, the usage of year FE
+will control for nationwide economic shocks, such as recessions or inflationary periods, that affect
+immigration to all MSAs in the sample as well as the economic performance of those areas.
         </p>
+        <h3 class="subsection-header"> IV Specification </h3>
+        <p class="content-text">
+          Without an exogenous immigration shock, it is difficult to estimate a causal effect of
+immigration on housing market outcomes because immigrant inflow may be endogenous to both
+rental rates and house prices. That is to say, immigrants do not randomly distribute themselves
+across metropolitan areas. They may be attracted to areas where housing costs are decreasing or
+rising more slowly (which would result in downward bias of the estimated effect), or they may be
+attracted to areas with rising housing costs because they believe that these price increases are
+reflective of growing employment opportunities in the area (Sa, 2015). Regardless of the direction of
+the bias created by the endogeneity issue, we require an instrument that meets two criteria. It must
+be relevant (it should explain, or be correlated with, the settlement patterns of immigrants) and valid
+(it should be correlated with either housing market outcome only by way of its effect on immigrant
+inflows). The aforementioned shift-share instrument, the most common instrumental variable in the
+related literature, should satisfy both of these criteria. It is usually structured as follows:
+        </p>
+         <img src="figures/eq_2.png" alt="Equation 2" class="inline-image">
+        <p class="content-text">
+          ∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑘,𝑡 is the predicted number of new immigrants in MSA k in year t,  𝑗,𝑘,2013 is the
+share of immigrants from country j that settled in MSA k in the base year, 2013., and
+∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑗,𝑈𝑆,𝑡 is the predicted number of total number of immigrants from country j that settled in the US in year t. Immigrant inflows are expressed as a proportion of prior MSA
+population.
+        </p>
+        <p class="content-text">
+          Before testing the aptitude of this instrument, I must make some modifications to its
+structure. Unfortunately, the data available to me does not allow me to implement the traditional
+origin-country-based shift-share instrument. With the ACS dataset I used to derive immigrant
+inflows, the origin countries of individuals born outside the U.S. that entered the U.S. after 2010 are
+not published for many MSAs. For relatively less populous metropolitan areas that receive relatively
+fewer immigrants, it is challenging for the U.S. Census Bureau to accurately estimate the inflow of
+foreign-born persons who entered the U.S. after 2010 from countries that send very fewer
+immigrants to the U.S. Thus, for all 381 MSAs in my dataset, there is no way to obtain the number
+of individuals who meet my criteria for being counted as an “immigrant” from origin countries that
+send very few individuals to the U.S.
+        </p>
+        <p class="content-text">
+          Saiz (2007) does present a feasible alternative: the U.S.-level shift-share instrument. He
+structures it as such:
+        </p>
+        <img src="figures/eq_3.png" alt="Equation 3" class="inline-image">
+        <p class="content-text">
+          ∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑘,𝑡
+̂
+is the predicted number of new immigrants in MSA k in year t,  𝑘,2013 is the
+share of the total immigrants that moved to MSA k in the base year of 2013, and
+∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑈𝑆,𝑡
+̂
+is the predicted total number of new immigrants who settled in the U.S. in year
+t. Similarly to the origin-country based instrument, immigrant inflows are expressed as a proportion
+of prior MSA population.
+        </p>
+        <p class="content-text">
+          Saiz (2007) is able to predict the annual total number of new immigrants to the U.S. as a
+whole using a random effects regression model that uses the presence of economic and political
+hardships like wars, depressions, and instability in origin countries to calculate the probability that an
+immigrant will migrate to the United States. Lamentably, many of the data sources he uses to
+construct this model either no longer exist or contain no data for the period from 2013 to 2022. So,
+I will use the actual total number of new immigrants who settled in the U.S. in year t instead, yielding
+the final instrument specification:
+        </p>
+        <img src="figures/eq_4.png" alt="Equation 4" class="inline-image">
         <p class="content-text">
           
         </p>
