@@ -264,14 +264,14 @@
       animation: highlight 2s ease;
     }
 
-    .fig-ref, .table-ref {
+    .fig-ref {
       color: #213F84;
       text-decoration: none;
       font-weight: bold;
       transition: all 0.2s ease;
     }
     
-    .fig-ref:hover, .table-ref:hover {
+    .fig-ref:hover {
       color: #7C9ADE;
     }
     
@@ -443,7 +443,7 @@
           My primary sources of immigration data are the ACS Selected Social Characteristics Tables, which provide 5-years estimates of the foreign-born population that entered the U.S. after 2010 at the MSA level. Therefore, raw immigrant inflows can be measured as the year-to-year change in the foreign-born population that entered the U.S. after 2010. One of the challenges presented in the literature is choosing a proxy for immigration that only captures “new” immigration, i.e. immigrants that recently arrived in the destination country, ideally less than a year prior to observation. Few, if any, data sources exist that meet all of the following criteria: 1) they include a broad set of destination MSAs, 2) they account for both legal and undocumented immigrant inflows (both of which can affect demographic and economic trends in the U.S.), and 3) they display annual immigrant inflows for all years in my study period. My preferred measure satisfies the first two criteria but might not fully reflect new immigrant inflows on an annual basis. Foreign-born individuals who have entered the U.S. after 2010 may have lived in some other place or places in the U.S. first before settling in the MSA in which they were observed. While this is almost certainly the case for a minority of immigrants under my definition, there is no reason to believe that it will significantly muddy my measurement of immigrant inflows. Immigrants, once they reach their destination country, may be very immobile, often choosing to remain in or around the area they first lived when they arrived <a href="#borjas1994" class="citation">(Borjas, 1994)</a>. If this assumption were to hold true, changes in the foreignborn population that entered the U.S. after 2010 in each MSA would accurately reflect changes in the immigrant population. Additionally, this series of tables provides data on the total population of each MSA, as well as the number of native-born individuals living in each MSA every year, which I use to calculate native-born as well as total population shifts. 
         </p>
         <p class="content-text">
-          I also obtain data on other economic factors that might be correlated with changes in immigrant concentration as well as my housing market outcomes. Data on unemployment rates are obtained from the Bureau of Labor Statistics (BLS), and data on income was obtained from the Bureau of Economic Analysis (BEA). Data on the educational attainment of MSA populations was sourced from the ACS Educational Attainment Tables series. I additionally obtain data on the industrial makeup (what percentage of the workforce is employed in certain sectors) of MSAs from the ACS Selected Economic Characteristics Tables. For a detailed table showing each variable, its definition, and its exact source, see <a href="#table_1" class="table-ref">Table 1</a>.
+          I also obtain data on other economic factors that might be correlated with changes in immigrant concentration as well as my housing market outcomes. Data on unemployment rates are obtained from the Bureau of Labor Statistics (BLS), and data on income was obtained from the Bureau of Economic Analysis (BEA). Data on the educational attainment of MSA populations was sourced from the ACS Educational Attainment Tables series. I additionally obtain data on the industrial makeup (what percentage of the workforce is employed in certain sectors) of MSAs from the ACS Selected Economic Characteristics Tables. For a detailed table showing each variable, its definition, and its exact source, see <a href="#table_1" class="fig-ref">Table 1</a>.
         </p>
         <div id="table_1" class="image-container">
           <p class="image-caption"> Table 1: Variable Definitions & Data Sources </p>
@@ -451,7 +451,7 @@
           <img src="figures/table_1b.png" alt="Variable Definitions & Data Sources" class="content-image">
         </div>
         <p class="content-text">
-          Table 2 displays some descriptive statistics of all MSA-years in the sample. For all variables included in this study, especially immigrant inflow, there is noticeable variation. On average, MSAs in this sample experienced changes in immigrant inflow that were slightly less than 1% of their total population, though more than a few MSAs saw 0 or negative changes, while others saw years with growth in their immigrant populations equal to about 10% of their total population. In a similar manner, changes in rental rates and house prices varied drastically over MSA-years. On average, rents increased annually by a little less than 1% while house prices increased annually about 1.8%. Once again, some MSAs saw their housing costs declining in some years, while others saw aboveaverage growth. All this is to say that there is plenty of variation in both immigration and housing cost changes to exploit in the upcoming experiment.
+        <a href="#table_2" class="fig-ref">Table 2</a> displays some descriptive statistics of all MSA-years in the sample. For all variables included in this study, especially immigrant inflow, there is noticeable variation. On average, MSAs in this sample experienced changes in immigrant inflow that were slightly less than 1% of their total population, though more than a few MSAs saw 0 or negative changes, while others saw years with growth in their immigrant populations equal to about 10% of their total population. In a similar manner, changes in rental rates and house prices varied drastically over MSA-years. On average, rents increased annually by a little less than 1% while house prices increased annually about 1.8%. Once again, some MSAs saw their housing costs declining in some years, while others saw aboveaverage growth. All this is to say that there is plenty of variation in both immigration and housing cost changes to exploit in the upcoming experiment.
         </p>
         <div id="table_2" class="image-container">
           <p class="image-caption"> Table 2: Descriptive Statistics </p>
@@ -462,27 +462,27 @@
       <section id="dynamics" class="section">
         <h2 class="section-header"> 4 Immigration & Housing Cost Dynamics in Modern U.S. </h2>
         <p class="content-text">
-          As expected with a country where population change varies greatly by geography, immigration dynamics vary substantially across the United States. Figure 1(a) displays the cumulative change in the immigrant stock in 381 metropolitan areas from 2013 to 2022 as a proportion of its 2022 population. This metric can be interpreted as the percent change in immigrant concentration from 2013 to 2022. Changes in immigrant concentration during this span ranged from a high of about 11% in the Miami area to a low of virtually 0 in the Bay City (Michigan) area. Perhaps unsurprisingly, the locations that saw the largest increases in immigrant concentration over the decade in question include some of America’s most populous and prominent metropolitan areas: Los Angeles, New York City, Houston, Dallas, San Jose, Boston, Washington D.C., Seattle, and Atlanta, to name a few. On a less granular scale, it seems that immigrant concentration is increasing the fastest in metropolitan areas in California, Florida, Texas, and various cities in New England and the Mid-Atlantic.
+          As expected with a country where population change varies greatly by geography, immigration dynamics vary substantially across the United States. <a href="#fig_1a" class="fig-ref">Figure 1(a)</a> displays the cumulative change in the immigrant stock in 381 metropolitan areas from 2013 to 2022 as a proportion of its 2022 population. This metric can be interpreted as the percent change in immigrant concentration from 2013 to 2022. Changes in immigrant concentration during this span ranged from a high of about 11% in the Miami area to a low of virtually 0 in the Bay City (Michigan) area. Perhaps unsurprisingly, the locations that saw the largest increases in immigrant concentration over the decade in question include some of America’s most populous and prominent metropolitan areas: Los Angeles, New York City, Houston, Dallas, San Jose, Boston, Washington D.C., Seattle, and Atlanta, to name a few. On a less granular scale, it seems that immigrant concentration is increasing the fastest in metropolitan areas in California, Florida, Texas, and various cities in New England and the Mid-Atlantic.
         </p>
-        <div class="image-container">
+        <div id="fig_1a" class="image-container">
           <p class="image-caption">Figure 1(a): Immigration Dynamics in the U.S. </p>
           <img src="figures/fig_1a.png" alt="Immigration Dynamics in the U.S." class="full-width-image">
         </div>
-        <div class="image-container">
+        <div id="fig_1b" class="image-container">
           <p class="image-caption">Figure 1(b): Rent Dynamics in the U.S. </p>
           <img src="figures/fig_1b.png" alt="Rent Dynamics in the U.S." class="full-width-image">
         </div>
-        <div class="image-container">
+        <div id="fig_1c" class="image-container">
           <p class="image-caption">Figure 1(c): House Price Dynamics in the U.S. </p>
           <img src="figures/fig_1c.png" alt="House Price Dynamics in the U.S." class="full-width-image">
         </div>
         <p class="content-text">
-          During this time, many metropolitan areas across the U.S. also saw substantial growth in housing costs, though to varying degrees in different locations. Many of the areas that experienced relatively large increases in rental rates and house prices from 2013 to 2022 also happen to be areas that experienced noteworthy increases in immigrant concentration. According to Figure 1(b), which displays the cumulative change in the inflation-adjusted median contract rent for a rental unit, metropolitan areas such as Atlanta, Orlando, and Nashville saw a large increase in rents; they also happen to have had large increases in immigrant concentration. A similar trend can be seen with changes in house prices. Figure 1(c) shows the cumulative change in the inflation-adjusted median value of an owner-occupied house. This suggests that metropolitan areas like Los Angeles, Seattle, and San Jose, which also saw large increases in immigrant concentration, experienced significant growth in house prices. 
+          During this time, many metropolitan areas across the U.S. also saw substantial growth in housing costs, though to varying degrees in different locations. Many of the areas that experienced relatively large increases in rental rates and house prices from 2013 to 2022 also happen to be areas that experienced noteworthy increases in immigrant concentration. According to <a href="#fig_1b" class="fig-ref">Figure 1(b)</a>, which displays the cumulative change in the inflation-adjusted median contract rent for a rental unit, metropolitan areas such as Atlanta, Orlando, and Nashville saw a large increase in rents; they also happen to have had large increases in immigrant concentration. A similar trend can be seen with changes in house prices. <a href="#fig_1c" class="fig-ref">Figure 1(c)</a> shows the cumulative change in the inflation-adjusted median value of an owner-occupied house. This suggests that metropolitan areas like Los Angeles, Seattle, and San Jose, which also saw large increases in immigrant concentration, experienced significant growth in house prices. 
         </p>
         <p class="content-text">
-          Overall, metropolitan areas that experienced growth in immigrant concentration from 2013-2022 also tended to experience increases in both rental rates and home values. Additionally, many metro areas with little change in immigrant concentration also saw rental rates and home values stagnate or even decline. For most metropolitan areas in the country, there seems to be an association between immigration and housing market outcomes. Indeed, Table 3 tells us that there is a slightly positive correlation between immigration and rents (correlation coefficient of 0.24) and house prices (0.15). While the strength of these associations may seem quite weak, it must be noted that many other economic factors must be accounted for when determining if there is actually a causal link.
+          Overall, metropolitan areas that experienced growth in immigrant concentration from 2013-2022 also tended to experience increases in both rental rates and home values. Additionally, many metro areas with little change in immigrant concentration also saw rental rates and home values stagnate or even decline. For most metropolitan areas in the country, there seems to be an association between immigration and housing market outcomes. Indeed, <a href="#table_3" class="fig-ref">Table 3</a> tells us that there is a slightly positive correlation between immigration and rents (correlation coefficient of 0.24) and house prices (0.15). While the strength of these associations may seem quite weak, it must be noted that many other economic factors must be accounted for when determining if there is actually a causal link.
         </p>
-        <div class="image-container">
+        <div id="table_3" class="image-container">
           <p class="image-caption"> Table 3: Correlation Matrix </p>
           <img src="figures/table_3.png" alt="Correlation Matrix" class="content-image">
         </div>
@@ -495,9 +495,9 @@
         <h2 class="section-header"> 5 Methodology </h2>
         <h3 class="subsection-header"> OLS Specification </h3>
         <p class="content-text">
-          Following <a href="#saiz2007" class="citation">Saiz (2007)</a> and much of the economic literature, I utilize Equation 1 to estimate the impact of immigration on rental rates and house prices using ordinary least squares (OLS):
+          Following <a href="#saiz2007" class="citation">Saiz (2007)</a> and much of the economic literature, I utilize <a href="#eq_1" class="fig-ref">Equation 1</a> to estimate the impact of immigration on rental rates and house prices using ordinary least squares (OLS):
         </p>
-        <img src="figures/eq_1.png" alt="Equation 1" class="inline-image">
+        <img id="eq_1" src="figures/eq_1.png" alt="Equation 1" class="inline-image">
         <p class="content-text">
           The dependent variable is the change in the log of the real median rental rate/house price in MSA i in year t. Taking the natural logarithm of the outcome variable allows for simpler interpretation of the effect of immigration on rents and house prices; the coefficients on the main explanatory variable can be read as a percent change. First-differencing the outcome variable helps mitigate the effect of area-specific, time-invariant on immigrant inflow (<a href="#saiz2007" class="citation">Saiz, 2007</a>; <a href="#sa2015" class="citation">Sá, 2015</a>; <a href="#unal2024" class="citation">Unal, et. al., 2024</a>). The main independent variable can be read as the lagged immigrant inflow as a proportion of double- lagged total population in MSA i. Adjusting immigration inflows for the total population stock helps account for the variation in immigrant inflows across MSAs of different population and housing market sizes (<a href="#sanchis_guarner2023" class="citation">Sanchis-Guarner, 2023</a>; <a href="#unal2024" class="citation">Unal, et. al., 2024</a>).
         </p>
