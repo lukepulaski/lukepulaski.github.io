@@ -217,6 +217,36 @@
       box-shadow: 0 2px 8px rgba(33, 63, 132, 0.2);
     }
 
+    .citation {
+      color: #213F84;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    
+    .citation:hover {
+      color: #7C9ADE;
+      text-decoration: underline;
+    }
+    
+    .reference-item {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #FFFFFF;
+      border-radius: 5px;
+      border-left: 3px solid #213F84;
+    }
+    
+    .reference-item:target {
+      background: #fffacd;
+      animation: highlight 2s ease;
+    }
+    
+    @keyframes highlight {
+      from { background: #fffacd; }
+      to { background: #FFFFFF; }
+    }
+
     @media (max-width: 968px) {
       .page-container {
         flex-direction: column;
@@ -655,9 +685,11 @@ Mariel boatlift, which saw tens of thousands of Cuban defectors flock to the Mia
       
       <section id="references" class="section">
         <h2 class="section-header">References</h2>
-        <p class="content-text">
-          List your references and citations here.
-        </p>
+        <div id="saiz2007" class="reference-item">
+          <p class="content-text">
+            <b>Saiz, A. (2007).</b> Immigration and housing rents in American cities. <i>Journal of Urban Economics</i>, 61(2), 345-371.
+          </p>
+        </div>
       </section>
     </main>
   </div>
