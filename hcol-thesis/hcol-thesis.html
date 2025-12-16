@@ -261,7 +261,21 @@
     }
     
     .reference-item:target {
-      background: #FFFFFF;
+      animation: highlight 2s ease;
+    }
+
+    .fig-ref, .table-ref {
+      color: #213F84;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    
+    .fig-ref:hover, .table-ref:hover {
+      color: #7C9ADE;
+    }
+    
+    .image-container:target {
       animation: highlight 2s ease;
     }
     
@@ -429,9 +443,9 @@
           My primary sources of immigration data are the ACS Selected Social Characteristics Tables, which provide 5-years estimates of the foreign-born population that entered the U.S. after 2010 at the MSA level. Therefore, raw immigrant inflows can be measured as the year-to-year change in the foreign-born population that entered the U.S. after 2010. One of the challenges presented in the literature is choosing a proxy for immigration that only captures “new” immigration, i.e. immigrants that recently arrived in the destination country, ideally less than a year prior to observation. Few, if any, data sources exist that meet all of the following criteria: 1) they include a broad set of destination MSAs, 2) they account for both legal and undocumented immigrant inflows (both of which can affect demographic and economic trends in the U.S.), and 3) they display annual immigrant inflows for all years in my study period. My preferred measure satisfies the first two criteria but might not fully reflect new immigrant inflows on an annual basis. Foreign-born individuals who have entered the U.S. after 2010 may have lived in some other place or places in the U.S. first before settling in the MSA in which they were observed. While this is almost certainly the case for a minority of immigrants under my definition, there is no reason to believe that it will significantly muddy my measurement of immigrant inflows. Immigrants, once they reach their destination country, may be very immobile, often choosing to remain in or around the area they first lived when they arrived <a href="#borjas1994" class="citation">(Borjas, 1994)</a>. If this assumption were to hold true, changes in the foreignborn population that entered the U.S. after 2010 in each MSA would accurately reflect changes in the immigrant population. Additionally, this series of tables provides data on the total population of each MSA, as well as the number of native-born individuals living in each MSA every year, which I use to calculate native-born as well as total population shifts. 
         </p>
         <p class="content-text">
-          I also obtain data on other economic factors that might be correlated with changes in immigrant concentration as well as my housing market outcomes. Data on unemployment rates are obtained from the Bureau of Labor Statistics (BLS), and data on income was obtained from the Bureau of Economic Analysis (BEA). Data on the educational attainment of MSA populations was sourced from the ACS Educational Attainment Tables series. I additionally obtain data on the industrial makeup (what percentage of the workforce is employed in certain sectors) of MSAs from the ACS Selected Economic Characteristics Tables. For a detailed table showing each variable, its definition, and its exact source, see Table 1.
+          I also obtain data on other economic factors that might be correlated with changes in immigrant concentration as well as my housing market outcomes. Data on unemployment rates are obtained from the Bureau of Labor Statistics (BLS), and data on income was obtained from the Bureau of Economic Analysis (BEA). Data on the educational attainment of MSA populations was sourced from the ACS Educational Attainment Tables series. I additionally obtain data on the industrial makeup (what percentage of the workforce is employed in certain sectors) of MSAs from the ACS Selected Economic Characteristics Tables. For a detailed table showing each variable, its definition, and its exact source, see <a href="#table_1" class="table-ref">Table 1</a>.
         </p>
-        <div class="image-container">
+        <div id="table_1" class="image-container">
           <p class="image-caption"> Table 1: Variable Definitions & Data Sources </p>
           <img src="figures/table_1a.png" alt="Variable Definitions & Data Sources" class="content-image">
           <img src="figures/table_1b.png" alt="Variable Definitions & Data Sources" class="content-image">
@@ -439,7 +453,7 @@
         <p class="content-text">
           Table 2 displays some descriptive statistics of all MSA-years in the sample. For all variables included in this study, especially immigrant inflow, there is noticeable variation. On average, MSAs in this sample experienced changes in immigrant inflow that were slightly less than 1% of their total population, though more than a few MSAs saw 0 or negative changes, while others saw years with growth in their immigrant populations equal to about 10% of their total population. In a similar manner, changes in rental rates and house prices varied drastically over MSA-years. On average, rents increased annually by a little less than 1% while house prices increased annually about 1.8%. Once again, some MSAs saw their housing costs declining in some years, while others saw aboveaverage growth. All this is to say that there is plenty of variation in both immigration and housing cost changes to exploit in the upcoming experiment.
         </p>
-        <div class="image-container">
+        <div id="table_2" class="image-container">
           <p class="image-caption"> Table 2: Descriptive Statistics </p>
           <img src="figures/table_2.png" alt="Descriptive Statistics" class="content-image">
         </div>
