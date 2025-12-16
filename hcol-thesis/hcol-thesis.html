@@ -592,8 +592,8 @@ definition, and its exact source, see Table 1.
         </p>
         <div class="image-container">
           <p class="image-caption"> Table 1: Variable Definitions & Data Sources </p>
-          <img src="figures/table_1a.png" alt="Descriptive Statistics Table" class="content-image">
-          <img src="figures/table_1b.png" alt="Descriptive Statistics Table" class="content-image">
+          <img src="figures/table_1a.png" alt="Variable Definitions & Data Sources" class="content-image">
+          <img src="figures/table_1b.png" alt="Variable Definitions & Data Sources" class="content-image">
         </div>
         <p class="content-text">
           Table 2 displays some descriptive statistics of all MSA-years in the sample. For all variables
@@ -606,6 +606,11 @@ rents increased annually by a little less than 1% while house prices increased a
 Once again, some MSAs saw their housing costs declining in some years, while others saw aboveaverage growth. All this is to say that there is plenty of variation in both immigration and housing
 cost changes to exploit in the upcoming experiment.
         </p>
+        <div class="image-container">
+          <p class="image-caption"> Table 2: Descriptive Statistics </p>
+          <img src="figures/table_1a.png" alt="Descriptive Statistics" class="content-image">
+          <img src="figures/table_1b.png" alt="Descriptive Statistics" class="content-image">
+        </div>
       </section>
 
       <section id="dynamics" class="section">
@@ -622,8 +627,20 @@ decade in question include some of America’s most populous and prominent metro
 Los Angeles, New York City, Houston, Dallas, San Jose, Boston, Washington D.C., Seattle, and
 Atlanta, to name a few. On a less granular scale, it seems that immigrant concentration is increasing
 the fastest in metropolitan areas in California, Florida, Texas, and various cities in New England and
-the Mid-Atlantic
+the Mid-Atlantic.
         </p>
+        <div class="image-container">
+          <p class="image-caption">Figure 1(a): Immigration Dynamics in the U.S. </p>
+          <img src="figures/fig_1a.png" alt="Immigration Dynamics in the U.S." class="full-width-image">
+        </div>
+        <div class="image-container">
+          <p class="image-caption">Figure 1(b): Rent Dynamics in the U.S. </p>
+          <img src="figures/fig_1b.png" alt="Rent Dynamics in the U.S." class="full-width-image">
+        </div>
+        <div class="image-container">
+          <p class="image-caption">Figure 1(c): House Price Dynamics in the U.S. </p>
+          <img src="figures/fig_1c.png" alt="House Price Dynamics in the U.S." class="full-width-image">
+        </div>
         <p class="content-text">
           During this time, many metropolitan areas across the U.S. also saw substantial growth in
 housing costs, though to varying degrees in different locations. Many of the areas that experienced
@@ -647,6 +664,10 @@ house prices (0.15). While the strength of these associations may seem quite wea
 that many other economic factors must be accounted for when determining if there is actually a
 causal link.
         </p>
+        <div class="image-container">
+          <p class="image-caption"> Table 3: Correlation Matrix </p>
+          <img src="figures/table_3.png" alt="Correlation Matrix" class="content-image">
+        </div>
         <p class="content-text">
           In the subsequent sections, I employ several techniques to determine if there is a causal
 relationship between changes in immigrant concentration and changes in rental rates and house
@@ -660,6 +681,7 @@ prices and describe the setup behind how I will implement them.
           Following Saiz (2007) and much of the economic literature, I utilize Equation 1 to estimate
 the impact of immigration on rental rates and house prices using ordinary least squares (OLS):
         </p>
+        <img src="images/eq_1.png" alt="Equation 1" class="inline-image">
         <p class="content-text">
           
         </p>
