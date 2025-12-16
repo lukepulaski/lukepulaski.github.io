@@ -511,7 +511,7 @@
         <p class="content-text">
           Without an exogenous immigration shock, it is difficult to estimate a causal effect of immigration on housing market outcomes because immigrant inflow may be endogenous to both rental rates and house prices. That is to say, immigrants do not randomly distribute themselves across metropolitan areas. They may be attracted to areas where housing costs are decreasing or rising more slowly (which would result in downward bias of the estimated effect), or they may be attracted to areas with rising housing costs because they believe that these price increases are reflective of growing employment opportunities in the area <a href="#sa2015" class="citation">(Sá, 2015)</a>. Regardless of the direction of the bias created by the endogeneity issue, we require an instrument that meets two criteria. It must be relevant (it should explain, or be correlated with, the settlement patterns of immigrants) and valid (it should be correlated with either housing market outcome only by way of its effect on immigrant inflows). The aforementioned shift-share instrument, the most common instrumental variable in the related literature, should satisfy both of these criteria. It is usually structured as follows:
         </p>
-         <img src="figures/eq_2.png" alt="Equation 2" class="inline-image">
+         <img id="eq_2" src="figures/eq_2.png" alt="Equation 2" class="inline-image">
         <p class="content-text">
           ∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑘,𝑡 is the predicted number of new immigrants in MSA k in year t,  𝑗,𝑘,2013 is the share of immigrants from country j that settled in MSA k in the base year, 2013., and ∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑗,𝑈𝑆,𝑡 is the predicted number of total number of immigrants from country j that settled in the US in year t. Immigrant inflows are expressed as a proportion of prior MSA population.
         </p>
@@ -521,25 +521,25 @@
         <p class="content-text">
           <a href="#saiz2007" class="citation">Saiz (2007)</a> does present a feasible alternative: the U.S.-level shift-share instrument. He structures it as such:
         </p>
-        <img src="figures/eq_3.png" alt="Equation 3" class="inline-image">
+        <img id="eq_3" src="figures/eq_3.png" alt="Equation 3" class="inline-image">
         <p class="content-text">
           ∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑘,𝑡̂ is the predicted number of new immigrants in MSA k in year t,  𝑘,2013 is the share of the total immigrants that moved to MSA k in the base year of 2013, and ∆ 𝑖𝑚𝑚𝑖𝑔𝑟𝑎𝑛𝑡𝑠𝑈𝑆,𝑡̂ is the predicted total number of new immigrants who settled in the U.S. in year t. Similarly to the origin-country based instrument, immigrant inflows are expressed as a proportion of prior MSA population.
         </p>
         <p class="content-text">
           <a href="#saiz2007" class="citation">Saiz (2007)</a> is able to predict the annual total number of new immigrants to the U.S. as a whole using a random effects regression model that uses the presence of economic and political hardships like wars, depressions, and instability in origin countries to calculate the probability that an immigrant will migrate to the United States. Lamentably, many of the data sources he uses to construct this model either no longer exist or contain no data for the period from 2013 to 2022. So, I will use the actual total number of new immigrants who settled in the U.S. in year t instead, yielding the final instrument specification:
         </p>
-        <img src="figures/eq_4.png" alt="Equation 4" class="inline-image">
+        <img id="eq_4" src="figures/eq_4.png" alt="Equation 4" class="inline-image">
         <p class="content-text">
           The U.S.-level instrument still uses base-year immigrant inflows to predict inflows in subsequent years; the only real difference is the fact that all immigrants to the U.S. in a given year, regardless of their country of origin, are treated the same in terms of their probability of settling in a certain MSA. So, this IV approach does unfortunately disregard the network effects that have been deemed to be pivotal in an immigrant’s decision of where to settle. However, I will demonstrate that the modified instrument is still an excellent predictor of actual immigrant inflows, and that it is correlated with housing market outcomes only through its correlation with actual immigrant inflows.
         </p>
         <p class="content-text">
           Table 5 displays the first-stage regression results, which is designed to show if there is a strong relationship between the instrument and the main independent variable (immigration). The coefficient on the instrument is positive and significant at the 1% level, meaning my U.S.-level instrument is in fact heavily correlated with immigrant inflows. Furthermore, a first-stage F-test of this coefficient yields a test statistic of 11.86, which exceeds the threshold of 10 set by <a href="#stock2005" class="citation">Stock & Yogo (2005)</a>. The results of this F-test again indicate that is more likely than not that the immigrant inflows predicted by the U.S.-level instrument is correlated with actual immigration. Given this evidence, I can confidently say that the U.S.-level instrument, in my case, is relevant. Validity, on the other hand, is difficult to statistically ascertain. A reduced-form regression might help in showing that the instrument is correlated with the outcome variables (rent and house prices). Indeed, the results in Table 6 demonstrate that the U.S.-level instrument is heavily associated with rent and house prices. Ascertaining if the correlation between predicted immigration and housing market indicators occurs only through actual immigrant inflows is somewhat challenging.  <a href="#saiz2007" class="citation">Saiz (2007)</a> does note that the events occurring in immigrants’ countries of origin that cause them to migrate, such as military conflicts, economic turmoil, or political instability, are very likely to be unrelated to rental rate and house price dynamics in the United States. Therefore, it is reasonable enough to assume that immigration rates predicted by the U.S.-level instrument are only linked to housing market outcomes by way of actual immigration to the U.S.
         </p>
-        <div class="image-container">
+        <div id="table_5" class="image-container">
           <p class="image-caption"> Table 5: U.S.-Level Instrument Relevance Check—First-Stage Regression </p>
           <img src="figures/table_5.png" alt="U.S.-Level Instrument Relevance Check—First-Stage Regression" class="content-image">
         </div>
-        <div class="image-container">
+        <div id="eq_6" class="image-container">
           <p class="image-caption"> Table 6: U.S.-Level Instrument Validity Check—Reduced Form Regression </p>
           <img src="figures/table_6.png" alt="U.S.-Level Instrument Relevance Check—Reduced Form Regression" class="content-image">
         </div>
@@ -547,11 +547,11 @@
         <p class="content-text">
           Many studies acknowledge that the movement of native-born individuals as a result of a wave of immigration could be a confounding factor in estimating the true effect of immigration on housing cost changes. Despite this, <a href="#sanchis_guarner2023" class="citation">Sanchis-Guarner (2023)</a> authored one of the first papers that formally derived the direct effect of immigration on house prices. Following <a href="#sanchis_guarner2023" class="citation">Sanchis-Guarner (2023)</a>, I estimate the following equations:
         </p>
-        <img src="figures/eq_5_7.png" alt="Equations 5-7" class="inline-image">
+        <img id="eq_5_7" src="figures/eq_5_7.png" alt="Equations 5-7" class="inline-image">
         <p class="content-text">
           Equation 5 is exactly the same as Equation 1 in the “OLS Specification” subsection; it estimates the total impact of immigration on housing market outcomes. Equation 6 measures the partial immigrant demand and Equation 7 measures the impact of immigration on native mobility. The following relationship between the coefficients on the main explanatory variables in all three equations can then be established:
         </p>
-        <img src="figures/eq_8.png" alt="Equation 8" class="inline-image">
+        <img id="eq_8" src="figures/eq_8.png" alt="Equation 8" class="inline-image">
         <p class="content-text">
           What the decomposition implies is as follows (assuming all coefficients have been consistently estimated): the total effect of lagged immigrant inflow relative to double-lagged total MSA population can be decomposed into the sum of the partial effect that immigrant inflows have on housing market outcomes and the partial effects that immigrant inflows have on housing market outcomes via its impact on native migration. This can be rearranged to say that the total effect is equal to the partial effect of immigrant inflows times 1 plus the effect of immigrant inflow on native migration.
         </p>
@@ -576,7 +576,7 @@
         <p class="content-text">
           Table 4 displays the results of the OLS specification of the main empirical model displayed in Section 5 for all 381 sampled MSAs. The dependent variables are the change in the log of the median contract rent for rental units and the median value of an owner-occupied housing unit. The main independent variable in all specification is the change in the immigrant population in the prior year relative to the total MSA population from two years prior. Models 1 and 4 regress housing market outcomes on only the main independent variable, immigration inflow, and include MSA and year fixed effects. Models 2 and 5 add additional controls for income, education, and unemployment. Models 3 and 6 add controls for employment in sectors of the economy that historically employ many immigrant workers.
         </p>
-        <div class="image-container">
+        <div id="table_4" class="image-container">
           <p class="image-caption"> Table 4: OLS Results </p>
           <img src="figures/table_4.png" alt="OLS Results" class="content-image">
         </div>
@@ -590,7 +590,7 @@
         <p class="content-text">
           The results from the instrumental variable specification are displayed in Table 7. Model 1 has a dependent variable of the log of the median contract rent, and Model 2 has a dependent variable of the log of the median owner-occupied house value. The independent variable in either model is lagged immigrant inflow relative to the total MSA population 2 years prior. The lagged immigrant inflow variable is instrumented using the modified shift-share instrument.
         </p>
-        <div class="image-container">
+        <div id="table_7" class="image-container">
           <p class="image-caption"> Table 7: IV Results </p>
           <img src="figures/table_7.png" alt="IV Results" class="content-image">
         </div>
@@ -604,11 +604,11 @@
         <p class="content-text">
           Table 8(a) and Table 8(b) show the decomposition of the total and partial effects of immigration on rental rates and house prices, respectively. In either table, Model 3 is the exact same regression with the exact same result (both have a dependent variable of native migration and a main explanatory variable of immigrant inflows). In Table 7(a), Model 1 has a dependent variable of the log of median contract rent (in Model 1 of Table 3b, this would be the log of median home value) and an independent variable of the prior year’s immigrant inflows as a proportion of the total MSA population from 2 years prior. In Table 7(a), Model 2 has a dependent variable of the log of median contract rent (in Model 1 of Table 7(b), this would be the log of median home value) and an independent variable of the prior year’s total population change as a proportion of the total MSA population from 2 years prior. All models include the same vector of controls as Models 1 and 2 in Table 7 (the IV specification), MSA and year fixed effects, and the explanatory variables are instrumented using the U.S.-level instrument.
         </p>
-        <div class="image-container">
+        <div id="table_8a" class="image-container">
           <p class="image-caption"> Table 8(a): IV Results w/ Decomposition </p>
           <img src="figures/table_8a.png" alt="IV Results w/ Decomposition" class="content-image">
         </div>
-        <div class="image-container">
+        <div id="table_8b" class="image-container">
           <p class="image-caption"> Table 8(b): IV Results w/ Decomposition </p>
           <img src="figures/table_8b.png" alt="IV Results w/ Decomposition" class="content-image">
         </div>
@@ -627,7 +627,7 @@
         <p class="content-text">
           The last order of business in discussing the results of the decomposition is to investigate how they stack up against the IV estimates. The actual decomposition of the total effect of immigrant inflows on both rental rates and house prices in practice is strikingly close to how it should play out theoretically. Using Equation 8, the total effect of immigrant inflows on rental rates and house prices, respectively, should be as follows:
         </p>
-        <img src="figures/eq_8_test.png" alt="Equation 8 (test)" class="inline-image">
+        <img id="eq_8_test" src="figures/eq_8_test.png" alt="Equation 8 (test)" class="inline-image">
         <p class="content-text">
           These estimates are very similar to the estimates (1.947 and 3.117, respectively) in Model 1 of either table. I suspect that the small differences between the estimates predicted using the basic IV model and the model in which the total effect is decomposed can be accounted for by the mobility of immigrants that arrived in the US before 2010. I previously defined an “immigrant” as any foreign- born individual who entered the US after 2010; I also acknowledged that this could potentially introduce some measurement error in that regard. This will likely not cause much of an issue because immigrants, once they have settled in their destination country, may be less mobile within the country for several reasons. They may highly value the immigrant networks in their destination location (<a href="#borjas2002" class="citation">Borjas, 2002</a>; <a href="#saiz2007" class="citation">Saiz, 2007</a>), or it could be too risky for them to move elsewhere once they have secured housing and employment in their destination location.
         </p>
@@ -638,11 +638,11 @@
         <p class="content-text">
           Table 9(a) displays the effect of immigrant inflows on rental rates at the 5th percentile of rental rates, first quartile, median, third quartile, and 95th percentile. Table 9(b) displays similar estimations with house prices as the dependent variable. Once again, the same vector of controls as Models 1 and 2 in Table 7 (the IV specification), MSA and year fixed effects are included, and the explanatory variables are instrumented using the U.S.-level instrument.
         </p>
-        <div class="image-container">
+        <div id="table_9a" class="image-container">
           <p class="image-caption"> Table 9(a): IV Quantile Regressions </p>
           <img src="figures/table_9a.png" alt="IV Quantile Regressions" class="content-image">
         </div>
-        <div class="image-container">
+        <div id="table_9b" class="image-container">
           <p class="image-caption"> Table 9(b): IV Quantile Regressions </p>
           <img src="figures/table_9b.png" alt="IV Quantile Regressions" class="content-image">
         </div>
@@ -657,7 +657,7 @@
       <section id="robustness_checks" class="section">
         <h2 class="section-header"> 7 Robustness Checks </h2>
         <h3 class="subsection-header"> Addressing Measurement Error in the Immigration Variable </h3>
-        <div class="image-container">
+        <div id="table_10" class="image-container">
           <p class="image-caption"> Table 10: OHSS Sample of MSAs </p>
           <img src="figures/table_10a.png" alt="OHSS Sample of MSAs" class="content-image">
           <img src="figures/table_10b.png" alt="OHSS Sample of MSAs" class="content-image">
@@ -665,9 +665,9 @@
         <p class="content-text">
           One potential issue with my results could be the fact that immigrant inflows are improperly measured. Defining “immigrant inflow” as each MSA’s change in the foreign-born individuals that entered the U.S. after 2010 might not accurately reflect immigrants that arrived in the U.S. within the prior year. I present an alternative measurement of the immigration variable: the number of new legal permanent residents (LPRs) in an MSA in a given year. The Office of Homeland Security Statistics (OHSS) supplies data on the number of new LPRs annually in the 50 MSAs with the highest number of new LPRs in a given year. For the sample period of 2013-2022, 46 MSAs have LPR data for 9 or more years. The list of these 46 MSAs is displayed in Table 10. I then use this data to construct a new immigrant inflow variable, which represents the number of new LPRs added to an MSA in the prior year as a proportion of the total MSA population two years prior:
         </p>
-        <img src="figures/eq_9.png" alt="Equation 9" class="inline-image">
+        <img id="eq_9" src="figures/eq_9.png" alt="Equation 9" class="inline-image">
         <p class="content-text">
-          In Tables 10, 11(a), and 11(b), I will refer to this variable as “LPR_CHANGE”.
+          In Tables 11, 13(a), and 13(b), I will refer to this variable as “LPR_CHANGE”.
         </p>
         <p class="content-text">
           I expect that new LPR inflow relative to total population will have a lesser effect on both rental rates and housing prices when compared to the estimates using the old immigrant inflow measure. As a whole, LPR inflows into the U.S. are far less voluminous that those of all types of immigrants combined, as evidenced by the differences between cumulative immigrant inflow and cumulative LPR inflow in the first and third columns of Table 10. Additionally, LPRs often have lived in the U.S. for some time before they are granted permission to legally reside in the U.S., sometimes even for several years. So, if many of the new LPRs observed in these MSAs have resided in the U.S. for several years before attaining LPR status, they, too, may not be an accurate measure of immigrant inflow. This is because, after having lived in the U.S. for a certain period of time, immigrants often assimilate into the American economy and exhibit housing preferences closer to those of natives <a href="#borjas2002" class="citation">(Borjas, 2002)</a>.
@@ -675,11 +675,11 @@
         <p class="content-text">
           To test if this alternative measure affects my estimate, I regress housing market outcomes on LPR inflow relative to total population with the same set of controls as seen in the models in Table 7. I additionally employ my U.S.-level instrument (which I recalculate to account for the reduced sample) and MSA and year fixed effects. The relevance test is shown in Model 2 of Table 11, which yields an F-statistic of 90.49, far exceeding the weak instrument threshold of 10 established by <a href="#stock2005" class="citation">Stock & Yogo (2005)</a>. While the reduced form regressions in Table 12 do indicate that the U.S.-level instrument and both housing market outcomes are correlated, I also assume the instrument is valid for the same reasons as described in the “IV Specification” subsection of Section 5.
         </p>
-        <div class="image-container">
+        <div id="table_11" class="image-container">
           <p class="image-caption"> Table 11: Robustness check—1st stage regressions </p>
           <img src="figures/table_11.png" alt="Robustness check—1st stage regressions" class="content-image">
         </div>
-        <div class="image-container">
+        <div id="table_12" class="image-container">
           <p class="image-caption"> Table 12: Robustness check—Reduced form regressions </p>
           <img src="figures/table_12.png" alt="Robustness check—Reduced form regressions" class="content-image">
         </div>
@@ -689,11 +689,11 @@
         <p class="content-text">
           So, to obtain a more accurate comparison between the two measures of immigrant inflow, I also regress housing market outcomes on immigrant inflow relative to population (labeled as “IMMIGRATION” in Table 11 and Tables 13(a) and 13(b)) using the same sample of 46 MSAs. I recalculate the U.S.-level instrument accordingly and apply it to the immigration variable.
         </p>
-        <div class="image-container">
+        <div id="table_13a" class="image-container">
           <p class="image-caption"> Table 13(a): Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument </p>
           <img src="figures/table_13a.png" alt="Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument" class="content-image">
         </div>
-        <div class="image-container">
+        <div id="table_13b" class="image-container">
           <p class="image-caption"> Table 13(b): Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument </p>
           <img src="figures/table_13b.png" alt="Robustness check—Tests of alternative immigrant inflow measures and shift-share instrument" class="content-image">
         </div>
@@ -707,7 +707,7 @@
         <p class="content-text">
           I previously described the structure of the origin-country-based shift-share instrument in the “IV Specification” subsection of Section 5. For our purposes, however, we will be using LPR inflow in the base year (2013) to predict actual LPR inflow, so the origin-country instrument will be structured like so:
         </p>
-        <img src="figures/eq_10.png" alt="Equation 10" class="inline-image">
+        <img id="eq_10" src="figures/eq_10.png" alt="Equation 10" class="inline-image">
         <p class="content-text">
           I test the relevance of the origin-country shift-share instrument in Model 3 of Table 11 and find that, though the first-stage regression, the instrument and immigrant inflows are extremely correlated. An F-statistic of 171 further reinforces this idea, so I have few doubts about the relevance of the origin-country instrument. As for the validity of this instrument, I find through Models 2 and 4 of Table 12 that the shift-share instrument is highly correlated with both rental rates and house prices. Following <a href="#saiz2007" class="citation">Saiz (2007)</a>, I also assume that immigration rates predicted by the instrument are only linked to housing market outcomes by way of actual immigration to the U.S due to the exogeneity of events in origin countries that might motivate individuals to immigrate.
         </p>
