@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Debunking the Taxachusetts Myth </title>
+  <link rel="icon" type="image/svg+xml" href="../lp_logo.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 170px;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+    
+    body {
+      font-family: "Georgia";
+      line-height: 1.5; 
+      color: #213F84;
+      background: #F1EAD2;
+      padding-top: 150px;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #213F84;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 2rem 0;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    header h1 {
+      font-size: 2rem;
+      color: #F1EAD2;
+      max-width: 800px;
+    }
+    
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #F1EAD2;
+      color: #213F84;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .home-btn:hover {
+      background: #FFFFFF;
+      transform: scale(1.05);
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 8rem;
+    }
+
+    .page-container {
+      display: flex;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .download-section {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #213F84;
+      color: #F1EAD2;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn:hover {
+      background: #7C9ADE;
+      transform: scale(1.05);
+    }
+    
+    .toc-sidebar {
+      position: sticky;
+      top: 170px;
+      width: 250px;
+      height: fit-content;
+      background: #F1EAD2;
+      border-radius: 8px;
+      padding: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .toc-title {
+      font-size: 1.3rem;
+      color: #213F84;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      border-bottom: 2px solid #213F84;
+      padding-bottom: 0.5rem;
+    }
+    
+    .toc-list {
+      list-style: none;
+    }
+    
+    .toc-list li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .toc-link {
+      color: #696969;
+      text-decoration: none;
+      font-size: 1rem;
+      display: block;
+      padding: 0.5rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .toc-link:hover {
+      background: #F1EAD2;
+      color: #213F84;
+      padding-left: 1rem;
+    }
+    
+    .toc-link.active {
+      background: #213F84;
+      color: #F1EAD2;
+      font-weight: bold;
+    }
+    
+    main {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+      padding-top: 1rem;
+    }
+    
+    .section-header {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #213F84;
+      border-bottom: 2px solid #213F84;
+      padding-bottom: 0.5rem;
+    }
+
+    .subsection-header {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #213F84;
+      font-weight: bold;
+    }
+    
+    .subsubsection-header {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #213F84;
+      font-weight: bold;
+    }
+    
+    .content-text {
+      color: #494949;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .content-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      display: block;
+    }
+    
+    .image-container {
+      margin-top: 0.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .image-caption {
+      font-size: 1rem;
+      color: #696969;
+      font-style: italic;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+
+    .inline-image {
+      max-width: 60%;
+      height: auto;
+      margin: 1.5rem auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(33, 63, 132, 0.2);
+    }
+    
+    .full-width-image {
+      width: 100%;
+      height: auto;
+      margin: 2rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(33, 63, 132, 0.2);
+    }
+
+    .citation {
+      color: #213F84;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    
+    .citation:hover {
+      color: #7C9ADE;
+    }
+    
+    .reference-item {
+      margin-bottom: 0.25rem;
+      padding: 1rem;
+      border-radius: 5px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .fig-ref {
+      color: #213F84;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    
+    .fig-ref:hover {
+      color: #7C9ADE;
+    }
+
+    @media (max-width: 968px) {
+      .page-container {
+        flex-direction: column;
+      }
+      
+      .toc-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+      }
+    }
+    
+  </style>
+</head>
+  
+<body>
+  <header>
+    <div class="header-content">
+      <h1> Testing for Adverse Selection in the Market for Medicare Advantage and Medicare Part D </h1>
+      <a href="../index.html" target="_self" class="home-btn">
+        <i class="fa-solid fa-home"></i>
+        Return to Homepage
+      </a>
+    </div>
+  </header>
+
+  <div class="page-container">
+
+    <aside class="toc-sidebar">
+      <h2 class="toc-title">Table of Contents</h2>
+      <ul class="toc-list">
+        <li><a href="#introduction" class="toc-link"> Introduction </a></li>
+        <li><a href="#lit_review" class="toc-link"> Literature Review </a></li>
+        <li><a href="#data" class="toc-link"> Data </a></li>
+        <li><a href="#model" class="toc-link"> Model Specification </a></li>
+        <li><a href="#results" class="toc-link"> Results </a></li>
+        <li><a href="#discussion" class="toc-link"> Discussion </a></li>
+        <li><a href="#conclusion" class="toc-link"> Conclusion </a></li>
+        <li><a href="#references" class="toc-link"> References </a></li>
+        <li><a href="#appendix" class="toc-link"> Appendix </a></li>
+      </ul>
+    </aside>
+
+    <main>
+
+      <div class="download-section">
+        <a href="econ-4850-final-paper.pdf" target="_blank" class="download-btn">
+          <i class="fa-solid fa-file-pdf"></i>
+          Download PDF
+        </a>
+        <a href="stata-files.zip" target="_blank" class="download-btn">
+          <i class="fa fa-th"></i>
+          Download STATA files
+        </a>
+      </div>
+
+      <section id="introduction" class="section">
+        <h2 class="section-header"> Introduction </h2>
+        <p class="content-text">
+          Ever since the introduction of Medicare Advantage (MA) and Medicare Part D (Part D) with the Medicare Modernization Act of 2003 <a href="#cms2024" class="citation">(CMS, 2024)</a>, takeup of these supplemental health insurance coverage options for senior citizens in the U.S. has steadily increased up to the present day. Today, more than half of Medicare beneficiaries are enrolled in MA plans, or Medicare- subsidized plans sold by private companies that offers an alternative to traditional Medicare <a href="#freed2024" class="citation">(Freed, et. al., 2024)</a>. Additionally, almost 80% of Medicare beneficiaries are enrolled in Part D, Medicare’s outpatient prescription drug insurance program <a href="#cubanski2024" class="citation">(Cubanski, 2024)</a>. While takeup rates this high are certainly worth celebrating, it is also worth wondering whether these Medicare supplements have attracted disproportionate numbers of beneficiaries with higher healthcare costs. Any insurer that offers plans with voluntary enrollment (such as MA and Part D) must be wary of this phenomenon, also known as adverse selection. While it has been shown to be a concern among private insurers, it is an even more pressing threat to markets for public health insurance (like Medicare), where the federal government, and ultimately, taxpayers, shoulder the burden of paying for care as opposed to private companies. Given the severity of the adverse selection if it exists public health insurance, in this study, I look for any indication of adverse selection in the markets for both MA and Part D. Using a five-year pooled subsample of individuals surveyed in the National Health Interview Survey (NHIS), I investigate if unhealthier, and therefore, riskier, individuals are more likely to enroll in MA or Part D as opposed to healthier individuals.
+        </p>
+      </section>
+
+      <section id="lit_review" class="section">
+        <h2 class="section-header"> Literature Review </h2>
+        <p class="content-text">
+          Several studies have documented evidence of adverse selection within the MA and Part D programs. For example, <a href="#lustig2010" class="citation">Lustig (2010)</a> finds that, in the market for Medicare HMO plans (a subset of MA coverage), the more costly beneficiaries tend to have the highest preferences for insurance. <a href="#levy2009" class="citation">Levy and Weir (2009)</a>, in an analysis of the predictors of Part D take-up among the elderly, note that most uninsured individuals in their sample made a rational economic choice in rejecting drug coverage; those who chose not to enroll in Part D likely elected not to because they already had low prescription drug costs. Using enrollment and claims data from the Medicare Current Beneficiary Survey, as well individual health risk scores based on the Center for Medicare and Medicaid Services Hierarchical Condition Category (CMS-HCC) risk adjustment model, <a href="#riley2009" class="citation">Riley, et. al. (2009)</a> find that enrollees in both MA prescription drug plans and Part D fee-for-services plans tend to have higher risk scores than uninsured individuals or individuals who otherwise receive drug coverage from another provider. In a similar vein, <a href="#heiss2009" class="citation">Heiss, et. al. (2009)</a> provide evidence that while individuals with higher risk scores might not necessarily adversely select into Part D, they do tend to favor more generous plans within the program. <a href="#polyakova2016" class="citation">Polyakova (2016)</a> similarly finds that Part D beneficiaries with higher health risk scores tend to prefer plans where they are offered more comprehensive coverage.
+        </p>
+        <p class="content-text">
+          The body of past literature indicates that adverse selection may be plaguing the markets for MA and Part D plans. However, an issue not addressed by some of the aforementioned studies is the endogeneity of the relationship between health risk and enrollment decision. While how costly an individual might be to insure has an effect on whether they enroll in MA or Part D, it is also true that their decision to enroll in either program can have a tangible effect on their health or healthcare utilization and thereby have an effect on how costly they are to insure. To combat this endogeneity problem, <a href="#chiappori2000" class="citation">Chiappori and Salanie (2000)</a>, in experiments looking for adverse selection in any insurance market, recommend sampling only individuals who have never been insured before. This way, it is impossible for prior insurance status to have affected the “riskiness” of an individual. In the auto insurance market, for example, they suggest studying only “beginning drivers”, who have no established pattern of driving behavior under any kind of insurance coverage. Following this logic, in the case of the market for MA and Part D, it would be wise to limit sampling to new enrollees, or individuals who are exactly of the age where they are first eligible to enroll.
+        </p>
+      </section>
+
+      <section id="data" class="section">
+        <h2 class="section-header"> Data </h2>
+        <p class="content-text">
+          I utilize pooled cross-sectional data from the NHIS, an annual population health survey of the civilian noninstitutionalized population of the United States, over a period from 2019 to 2023. The NHIS redesigned its questionnaire ahead of 2019, so, to ensure the consistency of the content and questions of the survey over time, I choose 2019 as my first year of observation. I apply the NHIS-provided survey weights (which help correct for nonresponse), adjusting for the fact that my sample contains five years of data as opposed to one.
+        </p>
+        <p class="content-text">
+         Following <a href="#chiappori2000" class="citation">Chiappori and Salanie (2000)</a>, I test for the presence of adverse selection into MA and Part D using a sample of individuals who are of the age where they are first eligible to enroll in Medicare. Seniors are first eligible to enroll in Medicare three months before the month of their 65th birthday, and the initial enrollment period (IEP) ends three months after their birthday month. Since the NHIS does not include the birth dates of respondents, I limit my sample to individuals aged 65 and 66 in an attempt to ensure that all individuals have at least had the opportunity to enroll in both MA and Part D if they desired. Even with this approach, I still find it necessary to pool all available data-years to ensure that the resulting subsample is sufficiently as representative of all IEP-aged individuals in the U.S. as possible. 
+        </p>
+        <p class="content-text">
+          The NHIS inquires about a variety of health-related topics, but I am particularly interested in respondents’ demographic characteristics, chronic health conditions, as well as their enrollment status in MA or Part D. Unfortunately, not all IEP-aged respondents indicated their enrollment status in either MA, Part D, or both, so those observations were dropped. Another handful of observations were dropped because information on one or more of a respondent’s demographic characteristics was missing. In total, 5,480 individuals of IEP age remain in the sample to test for adverse selection into MA, with 5,532 in the sample for Part D.
+        </p>
+        <p class="content-text">
+          To quantify an individual’s health risk, I employ a similar strategy to that of <a href="#riley2009" class="citation">Riley, et. al. (2009)</a>, which entails the usage of the CMS-HCC model for the MA sample and the related RxHCC model for the Part D sample. However, since I do not have access to individuals’ risk score data as assigned by Medicare, I must calculate these scores on my own, for both enrollees and non-enrollees, using the information I have. The CMS-HCC model assigns a risk adjustment factor (RAF) to acute and chronic health conditions based on how costly an individual with that condition would be to insure relative to someone without it. RAFs are also assigned to demographic characteristics; for example, factors are added based on an individual’s sex and age. For every health condition an individual has, the corresponding RAF is added to their risk score. Additionally, CMS uses an HCC model with different RAF scores, the RxHCC model, to determine how costly individuals with certain conditions will be to the Medicare Part D program, since some conditions rely more on prescription drugs to treat. So, I also calculate the health risk score of every individual in the Part D sample using the RxHCC model. The NHIS offers data on whether the respondents have previously been diagnosed with a number of medical conditions; I outline the conditions as well as my criteria to count a respondent as affected by that condition in <a href="#table_1" class="fig-ref">Table 1</a>. It should be mentioned that the HCC-based model does not add factors if an individual has hypertension or high cholesterol, whereas they are accounted for in the RxHCC model. For both the CMS-HCC and CMS-RxHCC models, CMS normalizes risk scores so that 1 is the average score among the entire population covered under Medicare in a given year. This is done by simply dividing the risk scores of all Medicare enrollees by the mean risk score. To stay as faithful to the CMS-HCC model as possible, and to make interpretation of risk scores easier, I choose to normalize my risk scores in the same manner. The distributions of HCC- and RxHCC-based risk scores are displayed in <a href="#fig_1" class="fig-ref">Figure 1</a> and <a href="#fig_2" class="fig-ref">Figure 2</a>, respectively. As expected, there is a pronounced right skew in the distribution of scores for either sample, meaning much of the IEP-aged sample is of below-average health risk. While it seems that individuals with lower health risk scores (especially those with scores between 0 and 0.5, for either sample) are less likely to be enrolled in MA or Part D, higher-risk individuals do not appear to be significantly more likely to be enrolled.
+        </p>
+        <p class="content-text">
+          To control for observable factors that might have an effect on either health risk or enrollment decision, I gather demographic data on selected respondents from the NHIS. These factors are sex, race, whether a respondent lives in an urban or rural area, educational attainment, income (which I present as the ratio of a respondent’s income to the federal poverty line, or “income/FPL ratio”), and “other care” (whether a respondent reported receiving regular medical care from the Veterans Administration (VA), Tricare, the Civilian Health and Medical Program of the Department of Veterans Affairs (CHAMPVA), or the Indian Health Service (IHS). Descriptive statistics for the MA and Part D samples, grouped by enrollees and non-enrollees, are shown in <a href="#table_2" class="fig-ref">Table 2</a>. To test if there are significant differences in the distributions of each control variable between enrollees and non-enrollees, I test whether the proportions of individuals in each subcategory of each variable are significantly different between enrollees and non-enrollees. In <a href="#table_2a" class="fig-ref">Table 2a</a>, I display these percentage point differences. I additionally report the statistical significance of the difference between the two proportions for each subcategory. While it seems that most differences between the enrollee and non-enrollee groups, for both the MA and Part D samples, are negligible in terms of factors like sex, race, and educational attainment, the differences in terms of income and “other care” are much starker. For either sample, it seems that lower-income individuals are represented far more in the enrollee subset, whereas higher-income individuals seem less likely to be enrolled. Additionally, it seems that those receiving “other care” are far less likely to be enrolled in either MA or Part D, though these individuals constitute a relatively small portion of either sample. Lastly, it seems that individuals living in rural areas are less likely to enroll in MA, and, to a lesser degree, in Part D. For these reasons, I believe that my empirical model will predict that several mediating factors will have substantial effects on enrollment decision.
+        </p>
+      </section>
+      
+      <section id="model" class="section">
+        <h2 class="section-header"> Model Specification </h2>
+        <p class="content-text">
+          To model the effect that health risk has on enrollment decision for IEP-aged individuals, I employ two separate logistic models: one for the MA sample, and one for the Part D sample, both of which are presented below.
+        </p>
+        <img id="model" src="figures/model.png" alt="Equation 1" class="inline-image">
+        <p class="content-text">
+          Model 1 seeks to identify the effect of HCC-based risk score on the decision to enroll in Medicare Advantage. Model 2 seeks to identify the effect of RxHCC-based risk score on the decision to enroll in Medicare Part D. In both models, <i>X</i> represents a set of controls that include sex, race, educational attainment, income, and <i>Z</i> represents a set of year dummy variables. Subscript <i>i</i> indexes survey respondents.
+        </p>
+      </section>
+      
+      <section id="results" class="section">
+        <h2 class="section-header"> Results </h2>
+        <p class="content-text">
+          Results from Model 1 are displayed in <a href="#table_3" class="fig-ref">Table 3</a>, and results from Model 2 are displayed in <a href="#table_4" class="fig-ref">Table 4</a>. In both tables, Column 1 displays the coefficients of all variables from the logistic regression, while Column 2 displays the average marginal effect (AME) corresponding with each variable. I will focus on the results from Column 2 for ease of interpretation.
+        </p>
+        <p class="content-text">
+          I find that a 1-unit increase in HCC-based health risk score, on average, increases the likelihood that an IEP-aged individual is enrolled in MA by 1.9%. To visualize this effect, assume there is an IEP-aged individual with a risk score of 1 (i.e. the HCC-based model predicts that they are of average health risk). My model predicts that, if that same individual’s score were to suddenly rise to 2 (they become twice as risky, in this scenario), they are only 1.9% more likely to be enrolled in MA. Given that most sampled individuals’ risk scores fall between 0 and 4, this effect, while somewhat significant, is not all that impactful. It is worth noting, however, that a number of the control variables in this model have an even larger, more significant effects on enrollment decision than health risk scores. For one, as I expected, living in a rural area decreases an individual’s likelihood of enrollment, on average, by almost 7%. Other notable AMEs include the effects of having a bachelor’s degree or higher (+3.3%), receiving “other care” (-23.9%), as well as being surveyed in 2019 (-9.7%) or 2020 (-6%). Finally, a one-unit increase in income/FPL ratio decreases the probability of enrollment by, on average, 2.6%.
+        </p>
+        <p class="content-text">
+          The estimates for Model 2, on the other hand, show that RxHCC-based health risk score might have a greater effect on enrollment in Part D. I find that, on average, a 1-unit increase in health risk score increases the probability an individual is enrolled in Part D by 5.2%. While this effect is significant and larger than the effect of health risk score on enrollment in MA, I likewise cannot say that health risk has a noteworthy impact on Part D enrollment. As was the case with the analysis of the MA model results, a 5.2% increase in the likelihood of enrollment resulting from a 1-unit increase in risk score is simply not substantial when most RxHCC-based health risk scores in the sample fall between 0 and 3. That said, many of the same covariates that had noteworthy AMEs in Model 1 are also worth pointing out for their effect on enrollment in Part D. Having a bachelor’s degree (+7%), receiving “other care” (-38.2%), and being surveyed in the year 2020 (-5.9%) all had relatively large, statistically significant AMEs, and while the AME of a one-unit increase in income/FPL ratio was relatively small (-2.2%), it, too, was significant.
+        </p>
+      </section>
+
+      <section id="discussion" class="section">
+        <h2 class="section-header"> Discussion </h2>
+        <p class="content-text">
+          Despite the statistical significance of the impact of health risk score on enrollment in both MA and Part D, neither effect appears to be that meaningful in terms of magnitude. This could be the case for a number of reasons. First of all, it could simply be the case that adverse selection is not actually a large concern in the market for MA or Part D. As mentioned before, takeup rates of plans in both programs are already quite high, so it is very plausible that high- and low-risk beneficiaries are enrolling at similar rates. It is also very likely, however, that my results are marred by measurement error, mainly in the construction of my health risk score variables. My calculations of each individual’s HCC- and RxHCC-based risk scores do not exactly reflect how they would be calculated by CMS, as NHIS does not survey individuals about every single medical condition that is fed into the HCC- and RxHCC-based models. Furthermore, my criteria to determine if an individual is currently affected by cancer and diabetes are likely flawed. If I had relaxed these criteria and allowed any individual who had been diagnosed with either condition at any point in their lives to be considered “affected”, marked changes may have occurred in the distribution of health risk scores, which in turn may have modified the effect of health risk scores on enrollment status. Aside from measurement error, the NHIS data also did not allow me to determine if respondents had other health insurance coverage (either privately purchased or employer sponsored) that might be a substitute for MA or Part D outside of the “other care” categories I described. It could very well be the case that unhealthier individuals in either sample not enrolled in either program elected not do so because they had another source of coverage, muddying my results.
+        </p>
+        <p class="content-text">
+          It seems as though several mitigating factors had far greater impacts on enrollment decisions (into both MA and Part D), some of which should be acted upon with policy interventions. For example, individuals with higher levels of educational attainment appear to be more likely to be enrolled in MA and Part D, which could be indicative of health literacy and financial literacy barriers preventing certain individuals from enrolling. There seem to be barriers to enrollment for individuals living in rural areas, which could require action to improve access to care outside urban areas through improvements in transportation and internet connection. Lastly, I find it interesting that the dummy variable for the year 2020, which coincides with the peak of the COVID-19 pandemic, was negative and significant in both models. This could mean that enrollment in MA and Part D was down in 2020 because new enrollees did not have access to resources to help them through the enrollment process, like in-person government offices, highlighting the need for further health insurance and technological literacy among seniors. While this analysis is not directly related to my research question, I nonetheless believe that the effects of these control variables merit discussion.
+        </p>
+      </section>
+      
+      
+      <section id="conclusion" class="section">
+        <h2 class="section-header"> Conclusion </h2>
+        <p class="content-text">
+          Using NHIS data to form a pooled subsample of IEP-aged individuals from 2019 to 2023, I find that, all else held equal, individuals with higher health risk are somewhat more likely to be enrolled in Medicare Advantage and Medicare Part D, although the effect of health risk on enrollment decision seems to be more than twice as strong in the market for Part D than for MA. It is worth mentioning that demographic and socioeconomic factors such as income, education, and receiving care from the VA, Tricare, CHAMPVA, or the IHS had sizeable effects, suggesting that IEP-aged individuals’ decisions to enroll in MA or Part D might be motivated by variables outside of their health status.
+        </p>
+        <p class="content-text">
+          This study necessitates further research into the nature of adverse selection in the market for public health insurance. The next logical step would be to run a similar experiment with a dataset in which respondents are surveyed on a broader variety of health conditions and are asked more specific questions about the nature of their insurance coverage for hospital visits, ER visits, PCP visits, and prescription drugs. If such a dataset exists, it would be especially beneficial if it offered a larger sample size than the one presented in this study. Another avenue of research could be to investigate the degree to which adverse selection affects plan choice within MA and Part D over a similar time period, as not all MA and Part D plans are the same and instead offer varying levels of coverage at different costs. With either route, I hope that some of the flaws of this study can potentially be mitigated.
+        </p>
+      </section>
+      
+      <section id="references" class="section">
+        <h2 class="section-header"> References </h2>
+        <div id="cms2024" class="reference-item">
+          <p class="content-text">
+            <b>Center for Medicare and Medicaid Services (CMS). (2024).</b> <i>History.</i> <a href="https://www.cms.gov/about-cms/who-we-are/history" target="_blank">https://www.cms.gov/about-cms/who-we-are/history</a>
+          </p>
+        </div>
+        <div id="chiappori2000" class="reference-item">
+          <p class="content-text">
+            <b>Chiappori, P.A., & Salanie, B. (2000).</b> Testing for Asymmetric Information in Insurance Markets. <i>Journal of Political Economy,</i> 108(1), 56-78.
+          </p>
+        </div>
+        <div id="cubanski2024" class="reference-item">
+          <p class="content-text">
+            <b>Cubanski, J. (2024).</b> A Current Snapshot of the Medicare Part D Prescription Drug Benefit. Kaiser Family Foundation. <a href="https://www.kff.org/medicare/issue-brief/a-current-snapshot-of-the-medicare-part-d-prescription-drug-benefit/" target="_blank">https://www.kff.org/medicare/issue-brief/a-current-snapshot-of-the-medicare-part-d-prescription-drug-benefit/</a>
+          </p>
+        </div>
+        <div id="freed2024" class="reference-item">
+          <p class="content-text">
+            <b>Freed, M., Biniek, J.F., Damico, A., & Neuman, T. (2024).</b> <i>Medicare Advantage in 2024: Enrollment
+Updates and Key Trends.</i> Kaiser Family Foundation. <a href="https://www.kff.org/medicare/issue-brief/medicare-advantage-in-2024-enrollment-update-and-key-trends/" target="_blank">https://www.kff.org/medicare/issue-brief/medicare-advantage-in-2024-enrollment-update-and-key-trends/</a>
+          </p>
+        </div>
+        <div id="heiss2009" class="reference-item">
+          <p class="content-text">
+            <b>Heiss, F., McFadden, D., & Winter, J. (2009).</b> <i>The workings of a private health insurance market: enrollment decisions, plan choice, and adverse selection in Medicare Part D.</i> University of Munich working paper.
+          </p>
+        </div>
+        <div id="levy2009" class="reference-item">
+          <p class="content-text">
+            <b>Levy, H., & Weir, D.R. (2009).</b> Take-up of Medicare Part D: Results from the Health and Retirement Study. <i>The Journals of Gerontology,</i> 65B(4), 492-501.
+          </p>
+        </div>
+        <div id="lustig2010" class="reference-item">
+          <p class="content-text">
+            <b>Lustig, J. (2010).</b> "The Welfare Effects of Adverse Selection in Privatized Medicare." Yale University working paper.
+          </p>
+        </div>
+        <div id="polyakova2016" class="reference-item">
+          <p class="content-text">
+            <b>Polyakova, M. (2016).</b> Regulation of Insurance with Adverse Selection and Switching Costs: Evidence from Medicate Part D. <i>American Economic Journal: Applied Economics,</i> 8(3), 165-195.
+          </p>
+        </div>
+        <div id="riley2009" class="reference-item">
+          <p class="content-text">
+            <b>Riley, G.F., Levy, J.M., & Montgomery, M.A. (2009).</b> Adverse Selection in the Medicare Prescription Drug Program. <i>Health Affairs,</i> 28(6), 1826-1837.
+          </p>
+        </div>
+      </section>
+
+      <section id="appendix" class="section">
+        <h2 class="section-header"> Appendix </h2>
+        <div id="table_1" class="image-container">
+          <p class="image-caption"> Table 1: Criteria to be counted as affected by a given condition </p>
+          <img src="figures/table_1.png" alt="Criteria to be counted as affected by a given condition" class="content-image">
+        </div>
+        <div id="fig_1" class="image-container">
+          <p class="image-caption"> Figure 1: Distribution of HCC-based risk scores among MA enrollee and non-enrollee groups </p>
+          <img src="figures/fig_1.png" alt="Distribution of RxHCC-based risk scores among MA enrollee and non-enrollee groups" class="content-image">
+        </div>
+        <div id="fig_2" class="image-container">
+          <p class="image-caption"> Figure 2: Distribution of RxHCC-based risk scores among Part D enrollee and non-enrollee groups </p>
+          <img src="figures/fig_2.png" alt="Distribution of RxHCC-based risk scores among Part D enrollee and non-enrollee groups" class="content-image">
+        </div>
+        <div id="table_2" class="image-container">
+          <p class="image-caption"> Table 2: Descriptive statistics (all covariates) </p>
+          <img src="figures/table_2.png" alt="Descriptive statistics (all covariates)" class="content-image">
+        </div>
+        <div id="table_2a" class="image-container">
+          <p class="image-caption"> Table 2a: Percentage-point differences in proportions of enrollees and non-enrollees in each subcategory </p>
+          <img src="figures/table_2a.png" alt="Percentage-point differences in proportions of enrollees and non-enrollees in each subcategory" class="content-image">
+        </div>
+        <div id="table_3" class="image-container">
+          <p class="image-caption"> Table 3: Logistic model results, MA sample </p>
+          <img src="figures/table_3.png" alt="Logistic model results, MA sample" class="content-image">
+        </div>
+        <div id="table_4" class="image-container">
+          <p class="image-caption"> Table 4: Logistic model results, Part D sample </p>
+          <img src="figures/table_4.png" alt="Logistic model results, Part D sample" class="content-image">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>
